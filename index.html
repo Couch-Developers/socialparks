@@ -25,7 +25,7 @@
         </ul>
       </article>
     </script>
-<!-- default data template -->
+<!-- default data template-->
     <script id="gov-template" type="text/x-handlebars-template">
       <article>
         <header>
@@ -39,11 +39,33 @@
         </ul>
       </article>
     </script>
+    <!-- Flickr data template -->
+    <script id="flickr-template" type="text/x-handlebars-template">
+      <!-- adds image and title in a div -->
+      <div class="flickr_img">
+        <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}.jpg" alt="{{title}}" />
+        <p>{{title}}</p>
+      </div>
+    </script>
   </head>
   <body>
     <main>
-      <a class="twitter-timeline"  href="https://twitter.com/search?q=yellowstone%20national%20park" data-widget-id="785572255174582273">Tweets about Yellowstone national park</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      <section id="landing-page" class="flex-container">
+        <div id="filters">
+          <select id="region-filter">
+            <option value="">---Filter by Region</option>
+          </select>
+          <select id="state-filter">
+            <option value="">---Filter by State</option>
+          </select>
+          <select id="park-filter">
+            <option value="">---Filter by Park</option>
+          </select>
+        </div>
+      </section>
+      <section id="regional-page" class="flex-container"></section>
+      <section id="park-page" class="flex-container"></section>
+      <section id="compare-page" class="flex-container"></section>
     </main>
     <script src="vendors/scripts/page.js"></script>
     <script src="vendors/scripts/html5sql.js"></script>
