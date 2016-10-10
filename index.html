@@ -41,8 +41,11 @@
     </script>
     <!-- Flickr data template -->
     <script id="flickr-template" type="text/x-handlebars-template">
-      <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}.jpg" alt="{{title}}" />
-
+      <!-- adds image and title in a div -->
+      <div class="flickr_img">
+        <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}.jpg" alt="{{title}}" />
+        <p>{{title}}</p>
+      </div>
     </script>
   </head>
   <body>
