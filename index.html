@@ -25,7 +25,7 @@
         </ul>
       </article>
     </script>
-<!-- default data template -->
+<!-- default data template-->
     <script id="gov-template" type="text/x-handlebars-template">
       <article>
         <header>
@@ -38,6 +38,14 @@
           <li>{{url}}</li>
         </ul>
       </article>
+    </script>
+    <!-- Flickr data template -->
+    <script id="flickr-template" type="text/x-handlebars-template">
+      <!-- adds image and title in a div -->
+      <div class="flickr_img">
+        <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}.jpg" alt="{{title}}" />
+        <p>{{title}}</p>
+      </div>
     </script>
   </head>
   <body>
