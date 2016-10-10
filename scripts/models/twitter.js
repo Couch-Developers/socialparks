@@ -7,3 +7,9 @@ var T = new Twit({
   access_token_secret:  ACCESS_TOKEN_SECRET,
   timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
 });
+
+T.get('search/tweets',
+  {q: 'banana', count: 10},
+  function(err, data, response) {
+    console.log(data);
+  });
