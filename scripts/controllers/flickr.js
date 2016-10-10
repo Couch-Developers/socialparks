@@ -7,7 +7,6 @@
   flickrData.fetchData = function() {
     $.ajax({
       type: 'GET',
-      url: '/flickr/',
       url: '/flickr/?method=flickr.photos.search&format=json&tags=' + parkName,
       success: function(data){
         console.log(data);
