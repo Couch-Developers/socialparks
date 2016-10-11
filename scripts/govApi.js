@@ -50,12 +50,16 @@
     };
 
     parksObj.parkNameJSON = function() {
-      console.log(parksObj.allParkNames);
       var parksNameArray = parksObj.allParkNames.map(function(obj) {
         return {name: obj.name, state: obj.states};
       });
-      console.log(parksNameArray);
       localStorage.setItem('parkNames', parksNameArray);
+      return parksNameArray;
     };
 
-    
+    parksObj.populateFilters = function(parksNameArray) {
+      var concatArray = parksNameArray.reduce(function(acc, curr) {
+      return acc.concat(curr.states);
+    },[]);
+    console.log(concatArray);
+    };
