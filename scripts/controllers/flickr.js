@@ -9,7 +9,7 @@
       type: 'GET',
       url: '/flickr/?method=flickr.photos.search&format=json&tags=' + parkName,
       success: function(data){
-        console.log(data);
+        //console.log(data);
       }
     });
   };

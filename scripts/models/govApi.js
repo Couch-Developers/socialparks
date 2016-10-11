@@ -18,7 +18,7 @@
 
   parksObj.parkNameJSON = function() {
     var parksNameArray = parksObj.allParkNames.map(function(obj) {
-      return {name: obj.name, state: obj.states};
+      return {name: obj.name, state: obj.states, code: obj.parkCode};
     });
     localStorage.setItem('parkNames', JSON.stringify(parksNameArray));
   };
@@ -28,7 +28,6 @@
       url: '/nps/parks?limit=525',
       success: function(data, message, xhr) {
         parksObj.allParkNames = data.data;
-        console.log(parksObj.allParkNames);
         }
       });
   };
