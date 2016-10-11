@@ -43,9 +43,23 @@
       $.ajax({
         url: '/nps/parks?limit=525',
         success: function(data) {
-          parksObj.allParkNames = data;
-          console.log(data);
-          localStorage.setItem('defaultParksData', JSON.stringify(parksObj.allParkNames));
+          parksObj.allParkNames = data.data;
+          parksObj.parkNameJSON();
         }
       });
+    };
+
+    parksObj.parkNameJSON = function() {
+      var parksNameArray = parksObj.allParkNames.map(function(obj) {
+        return {name: obj.name, state: obj.states};
+      });
+      localStorage.setItem('parkNames', parksNameArray);
+      return parksNameArray;
+    };
+
+    parksObj.populateFilters = function(parksNameArray) {
+      var concatArray = parksNameArray.reduce(function(acc, curr) {
+      return acc.concat(curr.states);
+    },[]);
+    console.log(concatArray);
     };
