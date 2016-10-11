@@ -1,6 +1,7 @@
 (function(module) {
 
   var parksView = {};
+  var completeData;
 
   parksView.populateStateFilter = function() {
     var parksStateArray = JSON.parse(localStorage.getItem('parkNames'));
@@ -39,14 +40,25 @@
       $('#park-filter').on('change', function() {
         if ($(this).val()) {
           var codeValue = $(this).val();
-
+          $.ajax({
+            url: '/nps/parks?fields=addresses%2Ccontacts%2CentranceFees%2CentrancePasses%2Cimages%2CoperatingHours&parkCode=' + codeValue,
+            success: function(data) {
+              completeData = data;
             }
           });
-        } else {
-          $('article:not(".template")').show();
         }
-      });
-    };
+    });
+  };
+
+  parksView.showPark = function() {
+    $('#gov-data').append(parksObj.toHtml(completeData));
+  };
+
+  parksView.renderIndexPage = function() {
+    parksView.populateParksFilter();
+    parksView.populateStateFilter();
+    parksView.handleParksFilter();
+  };
 
   module.parksView = parksView;
 })(window);
