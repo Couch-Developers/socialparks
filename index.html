@@ -10,7 +10,6 @@
     <meta charset="utf-8">
     <title></title>
 <!-- full data template -->
-<!-- there are two templates with an id of "gov-template"  future debugger: one must be commented out for this to work. -->
     <script id="gov-template" type="text/x-handlebars-template">
       <article>
         <header>
@@ -26,20 +25,6 @@
           <li>{{entranceFees}}</li>
           <li>{{entrancePasses}}</li>
           <li>{{contacts}}</li>
-          <li>{{url}}</li>
-        </ul>
-      </article>
-    </script>
-<!-- default data template-->
-    <script id="gov-template" type="text/x-handlebars-template">
-      <article>
-        <header>
-          <h2>{{name}}</h2>
-          <h3>{{designation}}</h3>
-        </header>
-        <p>{{description}}</p>
-        <p>{{weatherInfo}}</p>
-        <ul>
           <li>{{url}}</li>
         </ul>
       </article>
@@ -85,6 +70,7 @@
       <section id="about-page"></section>
       <section id="regional-page" class="flex-container"></section>
       <section id="park-page" class="flex-container">
+        <div id="gov-data"></div>
         <div id="tweet-container">
           <div id="tweet1"></div>
           <div id="tweet2"></div>
@@ -110,9 +96,9 @@
     <script src="vendors/scripts/map.js"></script>
     <!-- View scripts -->
     <script src="scripts/views/govView.js"></script>
-    <!-- Model scripts -->
+    <!-- Model scripts
     <script src="scripts/views/tweets.js"></script>
-    <script src="scripts/models/twitter.js"></script>
+    <script src="scripts/models/twitter.js"></script> -->
     <script src="scripts/models/govApi.js"></script>
     <!-- Controller scripts -->
     <script src="scripts/controllers/flickr.js"></script>
@@ -122,6 +108,5 @@
     <script src="scripts/controllers/compareController.js"></script>
     <script src="scripts/controllers/regionalController.js"></script>
     <script src="scripts/controllers/routes.js"></script>
-
     </body>
 </html>
