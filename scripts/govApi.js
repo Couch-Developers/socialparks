@@ -43,9 +43,19 @@
       $.ajax({
         url: '/nps/parks?limit=525',
         success: function(data) {
-          parksObj.allParkNames = data;
-          console.log(data);
-          localStorage.setItem('defaultParksData', JSON.stringify(parksObj.allParkNames));
+          parksObj.allParkNames = data.data;
+          parksObj.parkNameJSON();
         }
       });
     };
+
+    parksObj.parkNameJSON = function() {
+      console.log(parksObj.allParkNames);
+      var parksNameArray = parksObj.allParkNames.map(function(obj) {
+        return {name: obj.name, state: obj.states};
+      });
+      console.log(parksNameArray);
+      localStorage.setItem('parkNames', parksNameArray);
+    };
+
+    
