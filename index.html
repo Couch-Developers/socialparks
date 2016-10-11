@@ -52,6 +52,15 @@
         <p>{{title}}</p>
       </div>
     </script>
+    <!-- Twitter data template -->
+    <script id="twitter-template" type="text/x-handlebars-template">
+      <article>
+        <h2>{{id}}</h2>
+        <h3>{{retweet_count}}</h3>
+        <p>{{text}}</p>
+        <img src="{{media_url_https}}" alt="Tweet picture">
+      </article>
+    </script>
   </head>
   <body>
 <!-- Header -->
@@ -83,7 +92,9 @@
       </section>
       <section id="about-page"></section>
       <section id="regional-page" class="flex-container"></section>
-      <section id="park-page" class="flex-container"></section>
+      <section id="park-page" class="flex-container">
+        <div id="twitter-feed"></div>
+      </section>
       <section id="compare-page" class="flex-container"></section>
     </main>
 <!-- Footer -->

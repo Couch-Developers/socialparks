@@ -1,0 +1,74 @@
+/*Header styles*/
+header {
+  background-color: #254515;
+  color: #fff;
+
+}
+
+header a {
+  color: #fff
+}
+
+/*Main Body Styles*/
+main {
+  background-color: #C9DEA9;
+  color: #000;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+main a {
+  color: #000;
+}
+
+main section {
+  max-width: 95%;
+  margin: auto;
+}
+
+/*Footer styles*/
+footer {
+  background-color: #254515;
+  color: #fff;
+  min-height: 5em;
+  text-align: center;
+  padding-top: 1em;
+}
+
+/*Other styles*/
+h1 {
+  margin: 0;
+
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+}
+
+/*Media queries*/
+/* bigger than a large smartphone*/
+@media screen and (min-width:480px) {
+
+
+}
+
+/*bigger than a tablet*/
+@media screen and (min-width:1024px) {
+  header nav {
+    max-width: 90%;
+    margin: auto;
+  }
+
+  main section {
+    max-width: 90%;
+  }
+}
