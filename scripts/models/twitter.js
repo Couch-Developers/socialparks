@@ -1,7 +1,7 @@
 (function(module) {
   twitter = {};
 
-  tweetsObj.allTweets = [];
+  twitter.allTweets = [];
 
   twitter.requestTweets = function(searchItem, callback) {
     $.ajax({
@@ -13,7 +13,7 @@
     });
   };
 
-  tweetsObj.requestTweets('clinton');
+  twitter.requestTweets('clinton');
 
   module.twitter = twitter;
 })(window);
