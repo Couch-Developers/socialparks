@@ -50,12 +50,29 @@
   </head>
   <body>
     <main>
-
+      <section id="landing-page" class="flex-container">
+        <div id="filters">
+          <select id="region-filter">
+            <option value="">---Filter by Region</option>
+          </select>
+          <select id="state-filter">
+            <option value="">---Filter by State</option>
+          </select>
+          <select id="park-filter">
+            <option value="">---Filter by Park</option>
+          </select>
+        </div>
+      </section>
+      <section id="regional-page" class="flex-container"></section>
+      <section id="park-page" class="flex-container"></section>
+      <section id="compare-page" class="flex-container"></section>
     </main>
+    <script src="npsapikey.js"></script>
     <script src="vendors/scripts/page.js"></script>
     <script src="vendors/scripts/html5sql.js"></script>
     <script src="vendors/scripts/webdb.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+    <script src="scripts/govApi.js"></script>
     </body>
 </html>
