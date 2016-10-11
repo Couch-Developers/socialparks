@@ -4,13 +4,14 @@
   "description": "MVC for the win",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "rick@codefellows.com",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.13.3",
+    "express": "^4.14.0",
     "express-request-proxy": "^2.0.0",
     "twit": "^2.2.5"
   }
-}
+};
