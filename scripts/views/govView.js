@@ -39,14 +39,11 @@
       $('#park-filter').on('change', function() {
         if ($(this).val()) {
           var codeValue = $(this).val();
+          console.log(codeValue);
 
-            }
-          });
-        } else {
-          $('article:not(".template")').show();
         }
-      });
-    };
+    });
+  };
 
   module.parksView = parksView;
 })(window);
