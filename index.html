@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <title></title>
 <!-- full data template -->
+<!-- there are two templates with an id of "gov-template"  future debugger: one must be commented out for this to work. -->
     <script id="gov-template" type="text/x-handlebars-template">
       <article>
         <header>
@@ -49,6 +50,7 @@
     </script>
   </head>
   <body>
+<!-- Header -->
     <header>
       <h1>SocialParks</h1>
       <nav>
@@ -59,6 +61,7 @@
         </ul>
       </nav>
     </header>
+<!-- Main body  -->
     <main>
       <section id="landing-page" class="flex-container">
         <div id="filters">
@@ -73,10 +76,13 @@
           </select>
         </div>
       </section>
+      <section id="about-page"></section>
       <section id="regional-page" class="flex-container"></section>
       <section id="park-page" class="flex-container"></section>
       <section id="compare-page" class="flex-container"></section>
     </main>
+<!-- Footer -->
+    <footer>&copy; 2016 Couch Developers</footer>
     <script src="npsapikey.js"></script>
     <!-- Vendor Scripts -->
     <script src="vendors/scripts/page.js"></script>
