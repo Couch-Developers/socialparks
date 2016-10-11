@@ -6,7 +6,8 @@ page('/about', aboutController.index);
 
 page('/compare', compareController.index);
 
-page('/#', etcController.index);
-page('/#', etcController.index);
+page('/park/', parkController.index);
+page('/region/', regionalController.index);
+
 page('/#', etcController.index);
 page();
