@@ -9,7 +9,10 @@
       var str = obj.state.split(',');
       statesArray.push(str);
     });
-    console.log(statesArray);
+    var concatArray = statesArray.reduce(function(acc, curr) {
+      return acc.concat(curr.);
+    },[]);
+    console.log(concatArray);
     var myout = statesArray.reduce(function(prev, next) {
       prev[next] = (prev[next] || 0) + 1;
       return prev;
