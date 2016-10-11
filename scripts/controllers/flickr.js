@@ -18,4 +18,4 @@
 
 }(window));
 
-flickrData.fetchData();
+// flickrData.fetchData();
