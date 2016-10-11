@@ -2,19 +2,7 @@
 
   var parksObj = {};
 
-  //parksObj.allParks = [];
   parksObj.allParkNames = [];
-
-  // parksObj.requestAllParkData = function(callback) {
-  //   $.ajax({
-  //     url: '/nps/parks?fields=addresses%2Ccontacts%2CentranceFees%2CentrancePasses%2Cimages%2CoperatingHours&limit=525',
-  //     success: function(data) {
-  //       parksObj.allParks = data;
-  //       console.log(data);
-  //       callback();
-  //     }
-  //   });
-  // };
 
   parksObj.parkNameJSON = function() {
     var parksNameArray = parksObj.allParkNames.map(function(obj) {
@@ -32,6 +20,13 @@
       });
   };
 
+  //Handlebars template
+  parksObj.toHtml = function() {
+    var source = $('#gov-template').html();
+    var template = Handlebars.compile(source);
+    var html = template(this);
+    return html;
+  };
 
   module.parksObj = parksObj;
 })(window);
