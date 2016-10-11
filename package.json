@@ -13,6 +13,7 @@
     "express": "^4.14.0",
     "express-request-proxy": "^2.0.0"
   },
+<<<<<<< HEAD
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sdcaulley/socialparks.git"
@@ -21,4 +22,15 @@
     "url": "https://github.com/sdcaulley/socialparks/issues"
   },
   "homepage": "https://github.com/sdcaulley/socialparks#readme"
+=======
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elhendricks/socialparks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/elhendricks/socialparks/issues"
+  },
+  "homepage": "https://github.com/elhendricks/socialparks#readme"
+>>>>>>> b4a7e3f28219680569ba86527eebdc7b1847cb8c
 }
