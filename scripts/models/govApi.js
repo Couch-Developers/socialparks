@@ -20,17 +20,13 @@
       });
   };
 
-  function parksObj (object) {
-    for (keys in object) {
-      this[keys] = object[keys];
-    }
-  }
   //Handlebars template
-  parksObj.prototype.toHtml = function() {
+  parksObj.toHtml = function() {
     var source = $('#gov-template').html();
     var template = Handlebars.compile(source);
     var html = template(this);
     return html;
+  };
 
   module.parksObj = parksObj;
 })(window);
