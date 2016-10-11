@@ -33,11 +33,17 @@ var map = AmCharts.makeChart( "chartdiv", {
 
       // let's build a list of currently selected states
       var states = [];
+      if (states.length === 3){
+        
+      }
       for ( var i in map.dataProvider.areas ) {
         var area = map.dataProvider.areas[ i ];
         if ( area.showAsSelected ) {
           states.push( area.title );
         }
+        //Put selected state onto the DOM
+        $('h2 .selection').empty();
+        $('h2 .selection').append(states[0], '<br>', states[1], '<br>', states[2]);
       }
     }
   } ],
