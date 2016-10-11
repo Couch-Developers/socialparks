@@ -1,46 +1,21 @@
 (function(module) {
+  var twitter = {};
 
-  function Twitter (opts) {
-    this.id = opts.id;
-    this.retweet_count = opts.retweet_count;
-  }
+  twitter.allTweetsId = [];
 
-  Twitter.allTweets = [];
-
-  Twitter.loadTweets = function() {
-    Twitter.requestTweets('clinton');
-    console.log(Twitter.allTweets);
-  };
-
-  // Twitter.loadTweets();
-
-  twitter.toHtml = function(tweet, scriptTemplateId) {
-    var source   = $(scriptTemplateId).html();
-    var template = Handlebars.compile(source);
-    var html = template(tweet);
-  };
-
-  Twitter.requestTweets = function(searchItem) {
+  twitter.requestTweets = function(searchItem) {
     $.ajax({
       url: '/tweets/' + searchItem,
       success: function(data) {
-        Twitter.allTweets.push(data.statuses);
+        twitter.allTweetsId = data.statuses.map(function(obj){
+          return obj.id_str;
+        });
+        tweets.renderTweets();
       }
     });
   };
 
-  Twitter.testLog = function(data) {
-    console.log(twitter.allTweets);
-  };
-
-  Twitter.renderTweets = function() {
-    twitter.allTweets.forEach(function(item){
-      $('#twitter-feed').append(twitter.toHtml(item, $('#twitter-template')));
-    });
-    console.log(twitter.allTweets);
-  };
-
-  // twitter.requestTweets('clinton', twitter.renderTweets);
+  twitter.requestTweets('yosemite');
 
   module.twitter = twitter;
 })(window);

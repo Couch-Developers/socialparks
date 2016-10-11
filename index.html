@@ -47,15 +47,6 @@
         <p>{{title}}</p>
       </div>
     </script>
-    <!-- Twitter data template -->
-    <script id="twitter-template" type="text/x-handlebars-template">
-      <article>
-        <h2>{{id}}</h2>
-        <h3>{{retweet_count}}</h3>
-        <p>{{text}}</p>
-        <img src="{{media_url_https}}" alt="Tweet picture">
-      </article>
-    </script>
   </head>
   <body>
     <main>
@@ -74,7 +65,11 @@
       </section>
       <section id="regional-page" class="flex-container"></section>
       <section id="park-page" class="flex-container">
-        <div id="twitter-feed"></div>
+        <div id="tweet-container">
+          <div id="tweet1"></div>
+          <div id="tweet2"></div>
+          <div id="tweet3"></div>
+        </div>
       </section>
       <section id="compare-page" class="flex-container"></section>
     </main>
@@ -86,13 +81,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
     <script src="scripts/govApi.js"></script>
+    <script src="https://platform.twitter.com/widgets.js"></script>
     <!-- Model scripts -->
+    <script src="scripts/views/tweets.js"></script>
     <script src="scripts/models/twitter.js"></script>
 
     <!-- Controller scripts -->
     <script src="scripts/controllers/flickr.js"></script>
 
     <!-- View scripts -->
+
 
     </body>
 </html>
