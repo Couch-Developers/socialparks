@@ -15,7 +15,8 @@ function proxyTwitter(request, response) {
   });
   T.get('search/tweets', {q: request.params[0], count: 10},
   function(err, data) {
-    response.json(data);
+    var tweets = response.json(data);
+    console.log(tweets);
   });
 };
 
