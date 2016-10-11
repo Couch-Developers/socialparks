@@ -13,5 +13,18 @@
     "express": "^4.14.0",
     "express-request-proxy": "^2.0.0",
     "twit": "^2.2.5"
+<<<<<<< HEAD
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdcaulley/socialparks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sdcaulley/socialparks/issues"
+  },
+  "homepage": "https://github.com/sdcaulley/socialparks#readme"
+=======
   }
+>>>>>>> master
 }

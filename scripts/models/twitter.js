@@ -29,6 +29,8 @@
     });
   };
 
+  twitter.requestTweets('clinton');
+
   Twitter.testLog = function(data) {
     console.log(twitter.allTweets);
   };
