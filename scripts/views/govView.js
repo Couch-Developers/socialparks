@@ -50,6 +50,13 @@
     });
   };
 
+  parksView.prototype.toHtml = function() {
+    var source = $('#gov-template').html();
+    var template = Handlebars.compile(source);
+    var html = template(this);
+    return html;
+  }
+
   parksView.renderIndexPage = function() {
     parksView.populateParksFilter();
     parksView.populateStateFilter();
