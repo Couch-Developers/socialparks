@@ -8,11 +8,11 @@
   Twitter.allTweets = [];
 
   Twitter.loadTweets = function() {
-    var test = Twitter.requestTweets('clinton');
-    console.log(test);
+    Twitter.requestTweets('clinton');
+    console.log(Twitter.allTweets);
   };
 
-  Twitter.loadTweets();
+  // Twitter.loadTweets();
 
   twitter.toHtml = function(tweet, scriptTemplateId) {
     var source   = $(scriptTemplateId).html();
@@ -24,7 +24,7 @@
     $.ajax({
       url: '/tweets/' + searchItem,
       success: function(data) {
-        return data.statuses;
+        Twitter.allTweets.push(data.statuses);
       }
     });
   };
