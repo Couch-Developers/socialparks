@@ -1,15 +1,19 @@
-// var Twit = require('twit');
-//
-// var T = new Twit({
-//   consumer_key:         CONSUMER_KEY,
-//   consumer_secret:      CONSUMER_SECRET,
-//   access_token:         ACCESS_TOKEN,
-//   access_token_secret:  ACCESS_TOKEN_SECRET,
-//   timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
-// });
-//
-// var requestTwitterProxy = T.get('search/tweets',
-//   {q: 'banana', count: 10},
-//   function(err, data) {
-//     response.json(data);
-//   });
+(function(module) {
+  twitter = {};
+
+  tweetsObj.allTweets = [];
+
+  twitter.requestTweets = function(searchItem, callback) {
+    $.ajax({
+      url: '/tweets/' + searchItem,
+      success: function(data) {
+        twitter.allTweets = data;
+        callback();
+      }
+    });
+  };
+
+  tweetsObj.requestTweets('clinton');
+
+  module.twitter = twitter;
+})(window);

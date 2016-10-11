@@ -12,15 +12,16 @@ var twitterProxy = function(request, response) {
     access_token_secret:  process.env.ACCESS_TOKEN_SECRET,
     timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
   });
-  T.get('search/tweets', {q: 'banana', count: 10},
+  T.get('search/tweets', {q: request.params[0], count: 10},
   function(err, data) {
+    console.log(data);
     response.json(data);
   });
 };
 
 app.use(express.static('./'));
 
-app.get('/tweets', twitterProxy);
+app.get('/tweets/*', twitterProxy);
 
 app.get('*', function(request, response) {
   console.log('New request:', request.url);
