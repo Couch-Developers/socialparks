@@ -2,6 +2,7 @@
   var regionalController = {};
 
   regionalController.index = function(){
+    
     $('#regional-page').fadeIn().siblings().hide();
   };
 
