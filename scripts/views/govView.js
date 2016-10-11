@@ -6,10 +6,11 @@
     var parksNameArray = JSON.parse(localStorage.getItem('parkNames'));
     var statesArray = [];
     parksNameArray.forEach(function(obj) {
-      statesArray.push(obj.state);
+      var str = obj.state.split(',');
+      statesArray.push(str);
     });
+    console.log(statesArray);
     var myout = statesArray.reduce(function(prev, next) {
-      console.log(statesArray);
       prev[next] = (prev[next] || 0) + 1;
       return prev;
     }, {});
