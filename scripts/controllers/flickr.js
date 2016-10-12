@@ -3,6 +3,7 @@
   var flickrData = {};
 
   var parkName = 'yosemite';
+  flickrData.picIndex = 0;
 
   flickrData.fetchData = function(parkName, nextFunction) {
     $.ajax({
@@ -22,9 +23,7 @@
   };
 
   flickrData.populateHandlebars = function (arr) {
-    arr.forEach(function(obj) {
-      $('#flickr').append(flickrData.toHtml(obj));
-    });
+    $('#flickr').append(flickrData.toHtml(arr[flickrData.picIndex]));
   };
 
   module.flickrData = flickrData;
