@@ -46,6 +46,14 @@
         <img src="{{media_url_https}}" alt="Tweet picture">
       </article>
     </script>
+    <!-- State Page Template -->
+    <script id="state-page-template" type="text/x-handlebars-template">
+      <ul>
+        <li>
+          <label><input type="checkbox" id="{{parkCode}}"><img src="{{images.1.url}}" style="max-width:100px; max-height:100px;"><h2>{{name}}</h2></label>
+        </li>
+      </ul>
+    </script>
   </head>
   <body>
 <!-- Header -->
@@ -63,9 +71,6 @@
     <main>
       <section id="landing-page" class="flex-container">
         <div id="filters">
-          <select id="region-filter">
-            <option value="">---Filter by Region</option>
-          </select>
           <select id="state-filter">
             <option value="">---Filter by State</option>
           </select>
@@ -78,7 +83,7 @@
         <div id="gov-data"></div>
       </section>
       <section id="about-page"></section>
-      <section id="regional-page" class="flex-container"></section>
+      <section id="state-page" class="flex-container"></section>
       <section id="park-page" class="flex-container">
         <div id="twitter-feed"></div>
         <div id="gov-data"></div>
@@ -120,7 +125,7 @@
     <script src="scripts/controllers/aboutController.js"></script>
     <script src="scripts/controllers/parkController.js"></script>
     <script src="scripts/controllers/compareController.js"></script>
-    <script src="scripts/controllers/regionalController.js"></script>
+    <script src="scripts/controllers/stateController.js"></script>
     <script src="scripts/controllers/routes.js"></script>
 
     </body>
