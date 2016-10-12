@@ -6,12 +6,14 @@
   };
 
   parkController.loadNpsData = function() {
-    
+
   };
 
 
-
-
+  parkController.loadFlickrData = function(ctx, next) {
+    flickrData.fetchData(ctx, flickrData.populateHandlbars);
+    next();
+  };
 
 
 
