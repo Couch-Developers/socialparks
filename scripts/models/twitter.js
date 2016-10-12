@@ -5,7 +5,7 @@
 
   twitter.requestTweets = function(searchItem) {
     $.ajax({
-      url: '/tweets/' + searchItem,
+      url: '/tweets/' + searchItem + "+national+park",
       success: function(data) {
         twitter.allTweetsId = data.statuses.map(function(obj){
           return obj.id_str;
@@ -15,7 +15,7 @@
     });
   };
 
-  twitter.requestTweets('zion national park');
+  // twitter.requestTweets('zion national park');
 
   module.twitter = twitter;
 })(window);
