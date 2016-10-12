@@ -47,7 +47,6 @@
             $('#gov-data').append(parksObj.toHtml(completeData));
           }
         });
-
       }
     });
   };
@@ -68,9 +67,8 @@
   parksView.renderIndexPage = function() {
     parksObj.fetchParkNames();
     parksView.handleParksFilter();
-
-
   };
+
   parksView.navigateFromParksFilter();
 
   module.parksView = parksView;

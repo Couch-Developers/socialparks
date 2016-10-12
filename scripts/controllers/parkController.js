@@ -28,4 +28,4 @@
 
   module.parkController = parkController;
 
-}(window));
+})(window);
