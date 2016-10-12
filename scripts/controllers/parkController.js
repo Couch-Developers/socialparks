@@ -11,7 +11,7 @@
 
 
   parkController.loadFlickrData = function(ctx, next) {
-    flickrData.fetchData(ctx, flickrData.populateHandlbars);
+    flickrData.fetchData(ctx.params.name, flickrData.populateHandlebars);
     next();
   };
 
