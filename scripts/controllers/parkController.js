@@ -5,6 +5,14 @@
     $('#park-page').fadeIn().siblings().hide();
   };
 
+  parkController.emptyParkHtml = function(ctx, next) {
+    $('#twitter-feed').empty();
+    $('#gov-data').empty();
+    $('#tweet').empty();
+    $('#flickr-container').empty();
+    next();
+  };
+
   parkController.loadNpsData = function(ctx, next) {
     parksView.showPark();
     next();
