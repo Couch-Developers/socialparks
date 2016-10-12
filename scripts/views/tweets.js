@@ -15,7 +15,7 @@
 
   tweets.buttonHandler = function() {
     $('button.next-media').on('click', function() {
-      if (twitter.allTweetsIndex <= (twitter.allTweetsId.length - 1)) {
+      if (twitter.allTweetsIndex < (twitter.allTweetsId.length - 1)) {
         twitter.allTweetsIndex++;
         tweets.renderTweets(twitter.allTweetsIndex);
       }

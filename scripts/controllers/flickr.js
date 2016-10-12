@@ -4,6 +4,10 @@
 
   var parkName = 'yosemite';
 
+  flickrData.flickrArray = [];
+  flickrData.picIndex = 0;
+
+
   flickrData.fetchData = function(parkName, nextFunction) {
     $.ajax({
       type: 'GET',
@@ -11,6 +15,7 @@
       success: function(data){
         flickrData.flickrArray = data.photos.photo;
         nextFunction(flickrData.flickrArray);
+        flickrData.buttonHandler();
       }
     });
   };
@@ -22,10 +27,27 @@
   };
 
   flickrData.populateHandlebars = function (arr) {
-    arr.forEach(function(obj) {
-      $('#flickr-container').append(flickrData.toHtml(obj));
+    $('#flickr').empty();
+    $('#flickr').append(flickrData.toHtml(arr[flickrData.picIndex]));
+  };
+
+  flickrData.buttonHandler = function() {
+    $('button.flickr-next-media').on('click', function() {
+      console.log('next-button clicked');
+      if (flickrData.picIndex <= (flickrData.flickrArray.length - 1)) {
+        flickrData.picIndex++;
+        flickrData.populateHandlebars(flickrData.flickrArray);
+      }
+    });
+    $('button.flickr-previous-media').on('click', function() {
+      console.log('previous-button clicked');
+      if (flickrData.picIndex > 0) {
+        flickrData.picIndex--;
+        flickrData.populateHandlebars(flickrData.flickrArray);
+      }
     });
   };
+
 
   module.flickrData = flickrData;
 
