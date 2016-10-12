@@ -1,3 +1,5 @@
+
+
 var map = AmCharts.makeChart( 'chartdiv', {
   'type': 'map',
   'theme': 'light',
@@ -37,11 +39,38 @@ var map = AmCharts.makeChart( 'chartdiv', {
         var id = data.id[3]+data.id[4];
         return {id:id, title:data.title};
       });
+
+      if (states.length === 1){
+        $('h2 .state-button').empty();
+        var select = $('<button>', {
+          text: 'Select State',
+          click: function() {
+            alert(states.map(function(data){
+              return 'You chose ' + data.title;
+            }));
+          }
+        });
+        $('h2 .state-button').append(select);
+      } else if (states.length > 1){
+        $('h2 .state-button').empty();
+        var select = $('<button>', {
+          text: 'Select States',
+          click: function() {
+            alert(states.map(function(data){
+              return 'You chose ' + data.title;
+            }));
+          }
+        });
+        $('h2 .state-button').append(select);
+      } else {
+        $('h2 .state-button').empty();
+      };
+
       if (states.length <=3){
 
         $('h2 .selection').empty();
-        $('h2 .selection').append(states.map(function(data){
-          return data.title + '<br>';
+        $('h2 .selection').append('State Selection:' + states.map(function(data){
+          return  ' ' + data.title;
         }));
       }else {
         alert('Please keep your selection to only 3 states');
