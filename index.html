@@ -82,6 +82,11 @@
         <h2>Select up to 3 states</h2>
         <div id="chartdiv"></div><h2>State Selection: <div class=selection></div></h2>
         <div id="gov-data"></div>
+        <div id="tweet-container">
+          <div id="tweet1"></div>
+          <div id="tweet2"></div>
+          <div id="tweet3"></div>
+        </div>
       </section>
       <section id="about-page">
         <h1>About Page</h1>
@@ -93,11 +98,7 @@
         <h1>Park Page</h1>
         <div id="twitter-feed"></div>
         <div id="gov-data"></div>
-        <div id="tweet-container">
-          <div id="tweet1"></div>
-          <div id="tweet2"></div>
-          <div id="tweet3"></div>
-        </div>
+        <!-- moved tweets from here -->
         <div id="flickr-container"></div>
       </section>
       <section id="compare-page" class="flex-container"></section>
@@ -121,9 +122,9 @@
 
     <!-- View scripts -->
     <script src="scripts/views/govView.js"></script>
+    <script src="scripts/views/tweets.js"></script>
     <!-- Model scripts -->
     <script src="scripts/models/flickr.js"></script>
-    <script src="scripts/views/tweets.js"></script>
     <script src="scripts/models/twitter.js"></script>
     <script src="scripts/models/govApi.js"></script>
 

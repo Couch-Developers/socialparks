@@ -15,7 +15,7 @@
     });
   };
 
-  twitter.requestTweets('yosemite');
+  twitter.requestTweets('glacier national park');
 
   module.twitter = twitter;
 })(window);
