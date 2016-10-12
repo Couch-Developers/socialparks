@@ -9,7 +9,6 @@
 
   };
 
-
   parkController.loadFlickrData = function(ctx, next) {
     flickrData.fetchData(ctx.params.name, flickrData.populateHandlebars);
     next();
