@@ -7,7 +7,8 @@
       twitter.allTweetsId[0],
       document.getElementById('tweet'),
       {
-        align: 'left'
+        align: 'center',
+        width: 'auto'
       });
   };
 
