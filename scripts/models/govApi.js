@@ -2,22 +2,28 @@
 
   var parksObj = {};
 
-  parksObj.allParkNames = [];
-
-  parksObj.parkNameJSON = function() {
-    var parksNameArray = parksObj.allParkNames.map(function(obj) {
-      return {name: obj.name, state: obj.states, code: obj.parkCode};
+  parksObj.parkNameJSON = function(array) {
+    array = array.map(function(obj) {
+      return {name: obj.name, states: obj.states, code: obj.parkCode};
     });
-    localStorage.setItem('parkNames', JSON.stringify(parksNameArray));
+    localStorage.setItem('parkNames', JSON.stringify(array));
   };
 
   parksObj.fetchParkNames = function() {
+    if(localStorage.parkNames) {
+      var parksStateArray = JSON.parse(localStorage.getItem('parkNames'));
+      parksView.populateParksFilter(parksStateArray);
+      parksView.populateStateFilter(parksStateArray);
+    } else {
       $.ajax({
       url: '/nps/parks?limit=525',
       success: function(data, message, xhr) {
-        parksObj.allParkNames = data.data;
+        parksView.populateParksFilter(data.data);
+        parksView.populateStateFilter(data.data);
+        parksObj.parkNameJSON(data.data);
         }
       });
+    }
   };
 
   //Handlebars template
