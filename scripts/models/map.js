@@ -1,4 +1,4 @@
-
+var states = [];
 
 var map = AmCharts.makeChart( 'chartdiv', {
   'type': 'map',
@@ -33,7 +33,7 @@ var map = AmCharts.makeChart( 'chartdiv', {
       // bring it to an appropriate color
       map.returnInitialColor( event.mapObject );
 
-      var states = map.dataProvider.areas.filter(function(data){
+      states = map.dataProvider.areas.filter(function(data){
         return data.showAsSelected === true;
       }).map(function(data){
         var id = data.id[3]+data.id[4];
