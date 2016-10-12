@@ -10,6 +10,7 @@ page('/about', aboutController.index);
 page('/compare', compareController.index);
 
 page('/park/:name',
+  parkController.emptyParkHtml,
   parkController.loadParkData,
   parkController.index);
 
