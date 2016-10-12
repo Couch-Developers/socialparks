@@ -5,6 +5,16 @@
     $('#park-page').fadeIn().siblings().hide();
   };
 
+  parkController.loadNpsData = function() {
+    
+  };
+
+
+
+
+
+
+
   module.parkController = parkController;
 
 }(window));
