@@ -2,6 +2,7 @@
   var twitter = {};
 
   twitter.allTweetsId = [];
+  twitter.allTweetsIndex = 0;
 
   twitter.requestTweets = function(searchItem) {
     $.ajax({
@@ -10,7 +11,8 @@
         twitter.allTweetsId = data.statuses.map(function(obj){
           return obj.id_str;
         });
-        tweets.renderTweets();
+        tweets.renderTweets(twitter.allTweetsIndex);
+        tweets.buttonHandler();
       }
     });
   };

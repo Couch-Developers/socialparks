@@ -12,7 +12,7 @@
 }
 
 #tweet-container button {
-  text-decoration: none;
+  outline: none;
   height: 80px;
   width: 40px;
   background-color: #E86523;
