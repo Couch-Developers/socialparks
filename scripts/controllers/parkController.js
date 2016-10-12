@@ -9,7 +9,7 @@
     $('#twitter-feed').empty();
     $('#gov-data').empty();
     $('#tweet').empty();
-    $('#flickr-container').empty();
+    $('#flickr').empty();
     next();
   };
 
