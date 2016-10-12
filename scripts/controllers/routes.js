@@ -1,6 +1,9 @@
 //Sample routing page for nav
 
-page('/', homeController.index);
+page('/',
+  homeController.npsPortion,
+  homeController.index
+  );
 
 page('/about', aboutController.index);
 

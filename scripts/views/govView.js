@@ -3,11 +3,10 @@
   var parksView = {};
   var completeData;
 
-  parksView.populateStateFilter = function() {
-    var parksStateArray = JSON.parse(localStorage.getItem('parkNames'));
+  parksView.populateStateFilter = function(array) {
     var statesArray = [];
-    parksStateArray.forEach(function(obj) {
-      var str = obj.state.split(',');
+    array.forEach(function(obj) {
+      var str = obj.states.split(',');
       statesArray.push(str);
     });
     var concatArray = statesArray.reduce(function(acc, curr) {
@@ -26,9 +25,8 @@
     }
   };
 
-  parksView.populateParksFilter = function() {
-    var parksNameArray = JSON.parse(localStorage.getItem('parkNames'));
-    parksNameArray.forEach(function(obj) {
+  parksView.populateParksFilter = function(array) {
+    array.forEach(function(obj) {
       var name = obj.name;
       var code = obj.code;
       var optionTag = '<option value="' + code + '">' + name + '</option>';
@@ -56,8 +54,7 @@
   };
 
   parksView.renderIndexPage = function() {
-    parksView.populateParksFilter();
-    parksView.populateStateFilter();
+    parksObj.fetchParkNames();
     parksView.handleParksFilter();
   };
 

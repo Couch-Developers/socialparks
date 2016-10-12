@@ -5,8 +5,9 @@
     $('#park-page').fadeIn().siblings().hide();
   };
 
-  parkController.loadNpsData = function() {
-
+  parkController.loadNpsData = function(ctx, next) {
+    parksView.showPark();
+    next();
   };
 
   parkController.loadFlickrData = function(ctx, next) {
