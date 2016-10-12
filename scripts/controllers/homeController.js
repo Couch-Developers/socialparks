@@ -12,4 +12,4 @@
 
   module.homeController = homeController;
 
-}(window));
+})(window);

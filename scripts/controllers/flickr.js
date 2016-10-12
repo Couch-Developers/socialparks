@@ -51,4 +51,4 @@
 
   module.flickrData = flickrData;
 
-}(window));
+})(window);
