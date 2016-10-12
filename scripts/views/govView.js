@@ -26,12 +26,14 @@
   };
 
   parksView.populateParksFilter = function(array) {
-    array.forEach(function(obj) {
-      var name = obj.name;
-      var code = obj.code;
-      var optionTag = '<option value="' + code + '">' + name + '</option>';
-      $('#park-filter').append(optionTag);
-    });
+    if ($('#park-filter option').length < 2) {
+      array.forEach(function(obj) {
+        var name = obj.name;
+        var code = obj.code;
+        var optionTag = '<option value="' + code + '">' + name + '</option>';
+        $('#park-filter').append(optionTag);
+      });
+    }
   };
 
   parksView.handleParksFilter = function() {
@@ -45,7 +47,13 @@
             }
           });
         }
+
+  parksView.navigateFromParksFilter = function(ctx, next) {
+    $('#park-filter').on('change', function() {
+      var parkName = $('option[value=' + $(this).val() +']').text();
+      page('/park/' + parkName.toLowerCase().replace(/\W+/g, '+'));
     });
+
   };
 
   parksView.showPark = function() {
@@ -56,7 +64,11 @@
   parksView.renderIndexPage = function() {
     parksObj.fetchParkNames();
     parksView.handleParksFilter();
+
+
   };
+  parksView.navigateFromParksFilter();
 
   module.parksView = parksView;
+
 })(window);
