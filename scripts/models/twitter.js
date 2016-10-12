@@ -15,7 +15,7 @@
     });
   };
 
-  twitter.requestTweets('yosemite');
+  twitter.requestTweets('zion national park');
 
   module.twitter = twitter;
 })(window);
