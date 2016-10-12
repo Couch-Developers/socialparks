@@ -14,10 +14,9 @@
   stateController.fetchData = function(stateId, nextFunction) {
     $.ajax({
       type: 'GET',
-      url: '/nps/parks?fields=images&stateCode=' + stateId,
+      url: '/nps/parks?stateCode=' + stateId,
       success: function(data) {
-        stateController.populateHandlebars(data);
-        nextFunction();
+        nextFunction(data);
       }
     });
   };
@@ -36,10 +35,10 @@
     return template(obj);
   };
 
-  stateController.populateHandlebars = function (arr) {
-    // $('').append().before();
-    arr.forEach(function(obj) {
-      $('#state-page').append(stateController.toHtml(obj));
+  stateController.populateHandlebars = function (obj) {
+    console.log(obj, "obj passed into function");
+    obj.data.forEach(function(park) {
+      $('#state-page').append(stateController.toHtml(park));
     });
   };
 
