@@ -45,6 +45,9 @@
               $('#gov-data').append(parksObj.toHtml(completeData));
             }
           });
+          var parkName = "";
+          var parkName = $('option[value=' + $(this).val() +']').text().toLowerCase().replace(/\W+/g, '+');
+          page('/park/' + parkName);
         }
     });
   };
