@@ -26,30 +26,40 @@
   };
 
   parksView.populateParksFilter = function(array) {
-    array.forEach(function(obj) {
-      var name = obj.name;
-      var code = obj.code;
-      var optionTag = '<option value="' + code + '">' + name + '</option>';
-      $('#park-filter').append(optionTag);
-    });
+    if ($('#park-filter option').length < 2) {
+      array.forEach(function(obj) {
+        var name = obj.name;
+        var code = obj.code;
+        var optionTag = '<option value="' + code + '">' + name + '</option>';
+        $('#park-filter').append(optionTag);
+      });
+    }
   };
 
   parksView.handleParksFilter = function() {
-      $('#park-filter').on('change', function() {
-        if ($(this).val()) {
-          var codeValue = $(this).val();
-          $.ajax({
-            url: '/nps/parks?fields=addresses%2Ccontacts%2CentranceFees%2CentrancePasses%2Cimages%2CoperatingHours&parkCode=' + codeValue,
-            success: function(data) {
-              completeData = data;
-              $('#gov-data').append(parksObj.toHtml(completeData));
-            }
-          });
-          var parkName = "";
-          var parkName = $('option[value=' + $(this).val() +']').text().toLowerCase().replace(/\W+/g, '+');
-          page('/park/' + parkName);
-        }
+    $('#park-filter').on('change', function() {
+      // if ($(this).val()) {
+      //   var codeValue = $(this).val();
+      //   $.ajax({
+      //     url: '/nps/parks?fields=addresses%2Ccontacts%2CentranceFees%2CentrancePasses%2Cimages%2CoperatingHours&parkCode=' + codeValue,
+      //     success: function(data) {
+      //       completeData = data;
+      //       $('#gov-data').append(parksObj.toHtml(completeData));
+      //     }
+      //   });
+      //
+      // }
     });
+  };
+  //
+
+  parksView.navigateFromParksFilter = function(ctx, next) {
+    $('#park-filter').on('change', function() {
+      var parkName = $('option[value=' + $(this).val() +']').text();
+      console.log(parkName);
+      page('/park/' + parkName.toLowerCase().replace(/\W+/g, '+'));
+    });
+
   };
 
   parksView.showPark = function() {
@@ -59,7 +69,11 @@
   parksView.renderIndexPage = function() {
     parksObj.fetchParkNames();
     parksView.handleParksFilter();
+
+
   };
+  parksView.navigateFromParksFilter();
 
   module.parksView = parksView;
+
 })(window);
