@@ -7,4 +7,4 @@
 
   module.compareController = compareController;
 
-}(window));
+})(window);

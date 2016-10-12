@@ -6,4 +6,4 @@
 
   module.state = stateModel;
 
-}(window));
+})(window);

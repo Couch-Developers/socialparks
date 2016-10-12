@@ -8,4 +8,4 @@
 
   module.aboutController = aboutController;
 
-}(window));
+})(window);
