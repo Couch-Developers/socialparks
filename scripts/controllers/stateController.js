@@ -45,4 +45,4 @@
 
   module.stateController = stateController;
 
-}(window));
+})(window);
