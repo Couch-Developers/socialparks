@@ -23,7 +23,7 @@
 
   flickrData.populateHandlebars = function (arr) {
     arr.forEach(function(obj) {
-      $('#flickr-container').append(flickrData.toHtml(obj));
+      $('#flickr').append(flickrData.toHtml(obj));
     });
   };
 
