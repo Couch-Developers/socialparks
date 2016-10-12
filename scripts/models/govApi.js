@@ -21,10 +21,10 @@
   };
 
   //Handlebars template
-  parksObj.toHtml = function() {
+  parksObj.toHtml = function(data) {
     var source = $('#gov-template').html();
     var template = Handlebars.compile(source);
-    var html = template(this);
+    var html = template(data);
     return html;
   };
 

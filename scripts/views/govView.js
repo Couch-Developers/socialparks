@@ -44,6 +44,7 @@
             url: '/nps/parks?fields=addresses%2Ccontacts%2CentranceFees%2CentrancePasses%2Cimages%2CoperatingHours&parkCode=' + codeValue,
             success: function(data) {
               completeData = data;
+              $('#gov-data').append(parksObj.toHtml(completeData));
             }
           });
         }
