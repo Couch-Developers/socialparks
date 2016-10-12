@@ -37,16 +37,18 @@
   };
 
   parksView.handleParksFilter = function() {
-      $('#park-filter').on('change', function() {
-        if ($(this).val()) {
-          var codeValue = $(this).val();
-          $.ajax({
-            url: '/nps/parks?fields=addresses%2Ccontacts%2CentranceFees%2CentrancePasses%2Cimages%2CoperatingHours&parkCode=' + codeValue,
-            success: function(data) {
-              completeData = data.data[0];
-            }
-          });
-        }
+    $('#park-filter').on('change', function() {
+      if ($(this).val()) {
+        var codeValue = $(this).val();
+        $.ajax({
+          url: '/nps/parks?fields=addresses%2Ccontacts%2CentranceFees%2CentrancePasses%2Cimages%2CoperatingHours&parkCode=' + codeValue,
+          success: function(data) {
+            completeData = data.data[0];
+          }
+        });
+      }
+    });
+  };
 
   parksView.navigateFromParksFilter = function(ctx, next) {
     $('#park-filter').on('change', function() {
