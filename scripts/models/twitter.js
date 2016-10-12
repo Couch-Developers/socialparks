@@ -15,7 +15,7 @@
     });
   };
 
-  twitter.requestTweets('glacier national park');
+  twitter.requestTweets('zion national park');
 
   module.twitter = twitter;
 })(window);
