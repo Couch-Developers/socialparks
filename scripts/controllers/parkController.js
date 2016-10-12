@@ -10,8 +10,9 @@
   };
 
 
-  parkController.loadFlickrData = function(ctx, next) {
+  parkController.loadParkData = function(ctx, next) {
     flickrData.fetchData(ctx.params.name, flickrData.populateHandlebars);
+    twitter.requestTweets(ctx.params.name);
     next();
   };
 

@@ -7,7 +7,7 @@ page('/about', aboutController.index);
 page('/compare', compareController.index);
 
 page('/park/:name',
-  parkController.loadFlickrData,
+  parkController.loadParkData,
   parkController.index);
 
 page('/states/', stateController.index);
