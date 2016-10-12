@@ -9,13 +9,13 @@
       type: 'GET',
       url: '/flickr/?method=flickr.photos.search&format=json&tags=' + parkName,
       success: function(data){
-        // console.log(data);
+        
       }
     });
   };
 
   module.flickrData = flickrData;
+  flickrData.fetchData();
+
 
 }(window));
-
-flickrData.fetchData();

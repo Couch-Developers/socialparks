@@ -38,7 +38,9 @@ function proxyFlickr(request, response) {
     query: {api_key: process.env.FLICKR_KEY,
             method: request.query.method,
             format: request.query.format,
-            tags: request.query.tags}
+            tags: request.query.tags,
+            per_page: 10,
+            nojsoncallback: 1}
   }))(request, response);
 };
 
