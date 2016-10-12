@@ -51,12 +51,11 @@
       }
     });
   };
-  
+
 
   parksView.navigateFromParksFilter = function(ctx, next) {
     $('#park-filter').on('change', function() {
       var parkName = $('option[value=' + $(this).val() +']').text();
-      console.log(parkName);
       page('/park/' + parkName.toLowerCase().replace(/\W+/g, '+'));
     });
 
