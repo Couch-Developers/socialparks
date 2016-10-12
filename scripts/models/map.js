@@ -44,21 +44,32 @@ var map = AmCharts.makeChart( 'chartdiv', {
         $('h2 .state-button').empty();
         var select = $('<button>', {
           text: 'Select State',
-          click: function() {
-            alert(states.map(function(data){
-              return 'You chose ' + data.title;
-            }));
+          click: function(e) {
+            var stateId = states.map(function(data){
+              return '/states/' + data.title;
+            });
+            console.log(stateId);
+            e.preventDefault();
+            page(stateId[0]);
           }
         });
         $('h2 .state-button').append(select);
+
       } else if (states.length > 1){
         $('h2 .state-button').empty();
         var select = $('<button>', {
           text: 'Select States',
-          click: function() {
-            alert(states.map(function(data){
-              return 'You chose ' + data.title;
-            }));
+          click: function(e) {
+            var stateId = states.map(function(data){
+              return data.title;
+            });
+            console.log(stateId);
+            e.preventDefault();
+            if (stateId.length === 2){
+              page('/states/' + stateId[1] + '/' + stateId[0]);
+            } else {
+              page('/states/' + stateId[2] + '/' + stateId[1] + '/' + stateId[0]);
+            }
           }
         });
         $('h2 .state-button').append(select);
@@ -83,7 +94,7 @@ var map = AmCharts.makeChart( 'chartdiv', {
         // bring it to an appropriate color
         map.returnInitialColor( event.mapObject );
       }
-
+      console.log(states);
     }
   } ],
   'export': {
