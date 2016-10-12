@@ -1,7 +1,4 @@
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-}
+
 
 
 /*Header layout styles*/
@@ -41,6 +38,15 @@ nav li:hover {
 
   nav a {
     padding: .25em;
+  }
+
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .flex-img {
+    width: 18%;
   }
 
 }

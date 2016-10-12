@@ -62,7 +62,7 @@ li {
 }
 
 /*bigger than a tablet*/
-@media screen and (min-width:1024px) {
+@media screen and (min-width:960px) {
   header nav {
     max-width: 90%;
     margin: auto;
@@ -71,4 +71,6 @@ li {
   main section {
     max-width: 90%;
   }
+
+
 }

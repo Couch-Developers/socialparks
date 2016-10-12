@@ -15,16 +15,61 @@
         <header>
           <h2>{{name}}</h2>
           <h3>{{designation}}</h3>
-          <img src="{{images}}" />
+          <div class="flex-container">
+            {{#each images}}
+            <div  class="flex-img">
+              <p>{{title}}</p>
+              <img src="{{url}}" alt="{{altText}}"/>
+            </div>
+          {{/each}}
+          </div>
         </header>
         <p>{{description}}</p>
         <p>{{weatherInfo}}</p>
         <ul>
-          <li>{{addresses}}</li>
-          <li>{{operatingHours}}</li>
-          <li>{{entranceFees}}</li>
-          <li>{{entrancePasses}}</li>
-          <li>{{contacts}}</li>
+          <ul>
+            {{#each addresses}}
+              <li>{{type}}</li>
+              <li>{{line1}}</li>
+              <li>{{city}}, {{stateCode}} {{postalCode}}</li>
+            {{/each}}
+          </ul>
+          <ul>
+            {{#each operatingHours}}
+              <li>{{sunday}}</li>
+              <li>{{monday}}</li>
+              <li>{{tuesday}}</li>
+              <li>{{wednesday}}</li>
+              <li>{{thursday}}</li>
+              <li>{{friday}}</li>
+              <li>{{saturday}}</li>
+            {{/each}}
+          </ul>
+          <ul>
+            {{#each entranceFees}}
+              <li>{{title}}</li>
+              <li>{{description}}</li>
+              <li>${{cost}}</li>
+            {{/each}}
+          </ul>
+          <ul>
+            {{#each entrancePasses}}
+              <li>{{title}}</li>
+              <li>{{description}}</li>
+              <li>${{cost}}</li>
+            {{/each}}
+          </ul>
+          <ul>
+            {{#each contacts.emailAddresses}}
+              <li>{{emailAddress}}</li>
+            {{/each}}
+          </ul>
+          <ul>
+            {{#each contacts.phoneNumbers}}
+              <li>{{type}}</li>
+              <li>{{phoneNumber}}</li>
+            {{/each}}
+          </ul>
           <li>{{url}}</li>
         </ul>
       </article>
@@ -84,8 +129,6 @@
         </div>
         <h2>Select up to 3 states</h2>
         <div id="chartdiv"></div><h2><div class=selection></div><span class="state-button"></span></h2>
-        <div id="gov-data"></div>
-
       </section>
       <section id="about-page">
         <h1>About Page</h1>
@@ -95,8 +138,9 @@
       </section>
       <section id="park-page" class="flex-container">
         <h1>Park Page</h1>
-        <div id="twitter-feed"></div>
         <div id="gov-data"></div>
+        <div id="twitter-feed"></div>
+        <!-- <div id="gov-data"></div> -->
         <div id="tweet-container">
           <button class="left-button previous-media"><</button>
           <div id="tweet"></div>
