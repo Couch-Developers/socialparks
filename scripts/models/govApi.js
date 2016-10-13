@@ -39,6 +39,20 @@
       }
     });
   };
+
+  parksObj.getMultiParks = function(arr) {
+    parksObj.multiParks = [];
+    var baseUrl = '/nps/parks?fields=addresses%2Ccontacts%2CentranceFees%2CentrancePasses%2Cimages%2CoperatingHours&parkCode=';
+    arr.forEach(function(el){
+      $.ajax({
+        url: baseUrl + el,
+        success: function(data) {
+          parksObj.multiParks.push(data.data[0]);
+        }
+      });
+    });
+  };
+
   //Handlebars template
   parksObj.toHtml = function(data) {
     var source = $('#gov-template').html();

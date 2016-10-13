@@ -9,6 +9,36 @@
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all">
     <meta charset="utf-8">
     <title>SocialParks&#127794;</title>
+<!-- compare page template -->
+
+<script id="compare-template" type="text/x-handlebars-template">
+
+  <table>
+      <tr>
+        {{#each park}}
+        <th>
+          {{name}}
+        </th>
+        {{/each}}
+      </tr>
+
+      <tr>
+        {{#each park}}
+        <td>
+          {{#each entrancePasses}}
+          <ul>
+            <li>{{title}}</li>
+            <li>{{description}}</li>
+            <li>${{cost}}</li>
+          <ul>
+          {{/each}}
+        </td>
+        {{/each}}
+      </tr>
+    </table>
+</script>
+
+
 <!-- full data template -->
     <script id="gov-template" type="text/x-handlebars-template">
       <article>
@@ -181,6 +211,7 @@
 
 
         </form>
+
 
       </section>
     </main>
