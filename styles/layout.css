@@ -1,6 +1,7 @@
 
 /*Header layout styles*/
 header h1 {
+  font-family: 'Hind', sans-serif;
   font-size: 2em;
   text-align: center;
   padding: .25em 0 .25em .25em;
@@ -11,17 +12,18 @@ header h1 {
   align-items: center;
   justify-content: center;
   margin: 0;
+  padding: 0;
 }
 
 #site-name .logo {
-  height: 4em;
-  width: 4em;
+  height: 3.5em;
+  width: 3.5em;
   margin: 0;
 }
 
 /*Nav bar layout*/
 nav li {
-  font-size: 1.25em;
+  font-size: 1em;
   text-align: center;
   padding: .25em;
 }
