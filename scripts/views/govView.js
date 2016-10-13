@@ -2,27 +2,46 @@
 
   var parksView = {};
 
-  parksView.populateStateFilter = function(array) {
+  // parksView.populateStateFilter = function(array) {
+  //   if($('#state-filter option').length < 2) {
+  //     var statesArray = [];
+  //     array.forEach(function(obj) {
+  //       var str = obj.states.split(',');
+  //       statesArray.push(str);
+  //     });
+  //     var concatArray = statesArray.reduce(function(acc, curr) {
+  //       return acc.concat(curr);
+  //     },[]);
+  //     concatArray = concatArray.sort();
+  //     var myout = concatArray.reduce(function(prev, next) {
+  //       prev[next] = (prev[next] || 0) + 1;
+  //       return prev;
+  //     }, {});
+  //     for (keys in myout) {
+  //       this.keys = myout.keys;
+  //       var optionTag = '<option value="' + keys + '">' + keys + ' ' + myout[keys] + '</option>';
+  //       $('#state-filter').append(optionTag);
+  //     }
+  //   }
+  // };
+
+  parksView.designationFilter = function(array) {
     if($('#state-filter option').length < 2) {
-      var statesArray = [];
-      array.forEach(function(obj) {
-        var str = obj.states.split(',');
-        statesArray.push(str);
-      });
-      var concatArray = statesArray.reduce(function(acc, curr) {
-        return acc.concat(curr);
-      },[]);
-      concatArray = concatArray.sort();
-      var myout = concatArray.reduce(function(prev, next) {
-        prev[next] = (prev[next] || 0) + 1;
-        return prev;
-      }, {});
-      for (keys in myout) {
-        this.keys = myout.keys;
-        var optionTag = '<option value="' + keys + '">' + keys + ' ' + myout[keys] + '</option>';
-        $('#state-filter').append(optionTag);
-      }
+    var desArray = [];
+    array.forEach(function(obj) {
+      var des = obj.designation;
+      desArray.push(des);
+    });
+    var myout = desArray.reduce(function(prev, next) {
+      prev[next] = (prev[next] || 0) + 1;
+      return prev;
+    }, {});
+    for (keys in myout) {
+      this.keys = myout.keys;
+      var optionTag = '<option value="' + keys + '">' + keys + ' ' + myout[keys] + '</option>';
+      $('#state-filter').append(optionTag);
     }
+  }
   };
 
   parksView.populateParksFilter = function(array) {

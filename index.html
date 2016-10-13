@@ -16,12 +16,10 @@
           <h2>{{name}}</h2>
           <h3>{{designation}}</h3>
           <div class="flex-container">
-            {{#each images}}
             <div  class="flex-img">
-              <p>{{title}}</p>
-              <img src="{{url}}" alt="{{altText}}"/>
+              <p>{{images.0.title}}</p>
+              <img src="{{images.0.url}}" alt="{{images.0.altText}}" />
             </div>
-          {{/each}}
           </div>
         </header>
         <p>{{description}}</p>
@@ -103,8 +101,11 @@
   </head>
   <body>
 <!-- Header -->
-    <header>
-      <h1>SocialParks</h1>
+    <header id="main-header">
+      <div id="site-name">
+        <h1>SocialParks</h1>
+        <img class="logo" src="images/spLogo.png" alt="Social Parks logo">
+      </div>
       <nav>
         <ul>
           <li><a href="/">Home</a></li>
@@ -133,15 +134,21 @@
       </section>
       <section id="about-page">
         <h1>About Couch Developers</h1>
-        <p>We are students at Code Fellows and this is our final project for the Code 301 class.</p>
+        <p>We are students at Code Fellows and this is our final project for the Code 301 class.  This page provides a comparsion function for National Parks. This project uses public information from the Nation Parks service, Twitter, and Flickr, allowing a user to see the official information about the park, as well and images and Tweets from past visitors.</p>
+        <ul>
+          <li><img src="" />Steven Jackson</li>
+          <li><img src="/images/Stephanie_Caulley.jpg" />Stephanie Caulley</li>
+          <li><img src="" />Erica Hendricks</li>
+          <li><img src="" />Andy Beers</li>
+        </ul>
       </section>
       <section id="state-page" class="flex-container">
       </section>
       <section id="park-page" class="flex-container">
-        <h1>Park Page</h1>
+        <h1 id="park-name">Park Title</h1>
         <div id="gov-data"></div>
         <div id="twitter-feed"></div>
-        <div id="tweet-container">
+        <div id="tsweet-container">
           <button class="left-button previous-media"><</button>
           <div id="tweet"></div>
           <button class="right-button next-media">></button>
@@ -195,16 +202,13 @@
     <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
     <script src="/scripts/models/map.js"></script>
     <script src="https://platform.twitter.com/widgets.js"></script>
-
-    <!-- View scripts -->
-    <script src="scripts/views/govView.js"></script>
-    <script src="scripts/views/tweets.js"></script>
-    <script src="scripts/views/compareView.js"></script>
     <!-- Model scripts -->
     <script src="scripts/models/flickr.js"></script>
     <script src="scripts/models/twitter.js"></script>
     <script src="scripts/models/govApi.js"></script>
-
+    <!-- View scripts -->
+    <script src="scripts/views/govView.js"></script>
+    <script src="scripts/views/tweets.js"></script>
     <!-- Controller scripts -->
     <!-- <script src="scripts/controllers/flickr.js"></script> -->
     <script src="scripts/controllers/homeController.js"></script>
@@ -213,6 +217,5 @@
     <script src="scripts/controllers/compareController.js"></script>
     <script src="scripts/controllers/stateController.js"></script>
     <script src="scripts/controllers/routes.js"></script>
-
     </body>
 </html>
