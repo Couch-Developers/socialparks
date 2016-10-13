@@ -4,7 +4,7 @@
 
   parksObj.parkNameJSON = function(array) {
     array = array.map(function(obj) {
-      return {name: obj.name, states: obj.states, code: obj.parkCode};
+      return {name: obj.name, states: obj.states, code: obj.parkCode, designation: obj.designation};
     });
     localStorage.setItem('parkNames', JSON.stringify(array));
   };
@@ -13,13 +13,15 @@
     if(localStorage.parkNames) {
       var parksStateArray = JSON.parse(localStorage.getItem('parkNames'));
       parksView.populateParksFilter(parksStateArray);
-      parksView.populateStateFilter(parksStateArray);
+      // parksView.populateStateFilter(parksStateArray);
+      parksView.designationFilter(parksStateArray);
     } else {
       $.ajax({
       url: '/nps/parks?limit=525',
       success: function(data, message, xhr) {
         parksView.populateParksFilter(data.data);
-        parksView.populateStateFilter(data.data);
+        // parksView.populateStateFilter(data.data);
+        parksView.designationFilter(parksStateArray);
         parksObj.parkNameJSON(data.data);
         }
       });
