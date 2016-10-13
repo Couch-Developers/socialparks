@@ -27,6 +27,11 @@
   color: white;
 }
 
+#nps-body {
+  max-width: 90%;
+  margin: auto;
+}
+
 /*Twitter Container*/
 
 #tweet-container {

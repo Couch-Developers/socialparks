@@ -18,58 +18,60 @@
             <h3><i>{{designation}}</i></h3>
           </div>
         </header>
+        <div id="nps-body">
           <div id="nps-img" class="flex-img">
             <p>{{images.1.title}}</p>
             <img src="{{images.1.url}}" alt="{{images.1.altText}}" />
           </div>
-        <p>{{description}}</p>
-        <p>{{weatherInfo}}</p>
-        <ul>
+          <p>{{description}}</p>
+          <p>{{weatherInfo}}</p>
           <ul>
-            {{#each addresses}}
-              <li>{{type}}</li>
-              <li>{{line1}}</li>
-              <li>{{city}}, {{stateCode}} {{postalCode}}</li>
-            {{/each}}
+            <ul>
+              {{#each addresses}}
+                <li>{{type}}</li>
+                <li>{{line1}}</li>
+                <li>{{city}}, {{stateCode}} {{postalCode}}</li>
+              {{/each}}
+            </ul>
+            <ul>
+              {{#each operatingHours}}
+                <li>{{sunday}}</li>
+                <li>{{monday}}</li>
+                <li>{{tuesday}}</li>
+                <li>{{wednesday}}</li>
+                <li>{{thursday}}</li>
+                <li>{{friday}}</li>
+                <li>{{saturday}}</li>
+              {{/each}}
+            </ul>
+            <ul>
+              {{#each entranceFees}}
+                <li>{{title}}</li>
+                <li>{{description}}</li>
+                <li>${{cost}}</li>
+              {{/each}}
+            </ul>
+            <ul>
+              {{#each entrancePasses}}
+                <li>{{title}}</li>
+                <li>{{description}}</li>
+                <li>${{cost}}</li>
+              {{/each}}
+            </ul>
+            <ul>
+              {{#each contacts.emailAddresses}}
+                <li>{{emailAddress}}</li>
+              {{/each}}
+            </ul>
+            <ul>
+              {{#each contacts.phoneNumbers}}
+                <li>{{type}}</li>
+                <li>{{phoneNumber}}</li>
+              {{/each}}
+            </ul>
+            <li>{{url}}</li>
           </ul>
-          <ul>
-            {{#each operatingHours}}
-              <li>{{sunday}}</li>
-              <li>{{monday}}</li>
-              <li>{{tuesday}}</li>
-              <li>{{wednesday}}</li>
-              <li>{{thursday}}</li>
-              <li>{{friday}}</li>
-              <li>{{saturday}}</li>
-            {{/each}}
-          </ul>
-          <ul>
-            {{#each entranceFees}}
-              <li>{{title}}</li>
-              <li>{{description}}</li>
-              <li>${{cost}}</li>
-            {{/each}}
-          </ul>
-          <ul>
-            {{#each entrancePasses}}
-              <li>{{title}}</li>
-              <li>{{description}}</li>
-              <li>${{cost}}</li>
-            {{/each}}
-          </ul>
-          <ul>
-            {{#each contacts.emailAddresses}}
-              <li>{{emailAddress}}</li>
-            {{/each}}
-          </ul>
-          <ul>
-            {{#each contacts.phoneNumbers}}
-              <li>{{type}}</li>
-              <li>{{phoneNumber}}</li>
-            {{/each}}
-          </ul>
-          <li>{{url}}</li>
-        </ul>
+        </div>
       </article>
     </script>
     <!-- Flickr data template -->
