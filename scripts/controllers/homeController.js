@@ -10,6 +10,12 @@
     next();
   };
 
+  homeController.resetFilters = function(cxt, next) {
+    $('#park-filter').val('default');
+    $('#state-filter').val('default');
+    next();
+  };
+
   module.homeController = homeController;
 
 })(window);
