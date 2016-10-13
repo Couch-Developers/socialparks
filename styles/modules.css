@@ -12,11 +12,12 @@
 }
 
 #nps-img {
-  height: 35vh;
-  max-width: 80%;
+  height: 40vh;
+  width: 100%;
   margin: 0 auto;
   padding: 0;
   text-align: center;
+  overflow: hidden;
 }
 
 #nps-img p {
@@ -25,7 +26,7 @@
 
 #nps-img img {
   margin: .25em;
-  width: 100%;
+  max-width: 100%;
 }
 
 #park-name-des {
@@ -99,6 +100,7 @@
 #flickr-container {
   display: flex;
   align-items: center;
+  justify-content: center;
   max-width: 100%;
   margin: 0;
   padding: 0;
@@ -207,4 +209,11 @@
   /*#main-header nav {
     max-width: 90%;
     margin: auto;
+  }*/
+
+  /*.park-col {
+    display: flex;
+    width: 45%;
+    align-items: center;
+    justify-content: center;
   }*/
