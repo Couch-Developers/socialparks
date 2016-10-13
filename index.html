@@ -8,24 +8,28 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
     <meta charset="utf-8">
-    <title></title>
+    <title>SocialParks</title>
 <!-- full data template -->
     <script id="gov-template" type="text/x-handlebars-template">
       <article>
-        <header>
-          <h2>{{name}}</h2>
-          <h3>{{designation}}</h3>
-          <div class="flex-container">
-            <div  class="flex-img">
-              <p>{{images.0.title}}</p>
-              <img src="{{images.0.url}}" alt="{{images.0.altText}}" />
-            </div>
+        <header id="park-header" style="background-color:lightgreen;background:url({{images.0.url}});background-repeat:no-repeat;background-position-x:center;background-position-y:center;background-attachment:fixed;background-size:cover">
+          <div id="park-name-des">
+            <h2>{{name}}</h2>
+            <h4><i>{{designation}}</i></h4>
           </div>
         </header>
-        <p>{{description}}</p>
-        <p>{{weatherInfo}}</p>
-        <ul>
+        <div id="nps-body" class="park-col">
+          <div id="nps-img">
+            <img src="{{images.1.url}}" alt="{{images.1.altText}}">
+            <p>{{images.1.title}}</p>
+          </div>
+          <h4>About:</h4>
+          <p>{{description}}</p>
+          <h4>Weather Information:</h4>
+          <p>{{weatherInfo}}</p>
+          <h4>Addresses:</h4>
           <ul>
             {{#each addresses}}
               <li>{{type}}</li>
@@ -33,6 +37,7 @@
               <li>{{city}}, {{stateCode}} {{postalCode}}</li>
             {{/each}}
           </ul>
+          <h4>Operating Hours:</h4>
           <ul>
             {{#each operatingHours}}
               <li>{{sunday}}</li>
@@ -44,6 +49,7 @@
               <li>{{saturday}}</li>
             {{/each}}
           </ul>
+          <h4>Entrance Fees:</h4>
           <ul>
             {{#each entranceFees}}
               <li>{{title}}</li>
@@ -51,6 +57,7 @@
               <li>${{cost}}</li>
             {{/each}}
           </ul>
+          <h4>Entrance Passes:</h4>
           <ul>
             {{#each entrancePasses}}
               <li>{{title}}</li>
@@ -58,6 +65,7 @@
               <li>${{cost}}</li>
             {{/each}}
           </ul>
+          <h4>Contact Info:</h4>
           <ul>
             {{#each contacts.emailAddresses}}
               <li>{{emailAddress}}</li>
@@ -70,7 +78,7 @@
             {{/each}}
           </ul>
           <li>{{url}}</li>
-        </ul>
+        </div>
       </article>
     </script>
     <!-- Flickr data template -->
@@ -107,14 +115,12 @@
   <body>
 <!-- Header -->
     <header id="main-header">
-      <div id="site-name">
+      <a href="/"><div id="site-name">
         <h1>SocialParks</h1>
         <img class="logo" src="images/spLogo.png" alt="Social Parks logo">
-      </div>
+      </div></a>
       <nav>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
           <li><a href="/compare">Compare</a></li>
         </ul>
       </nav>
@@ -123,9 +129,6 @@
     <main>
       <section id="landing-page" class="flex-container">
         <h1>Home Page</h1>
-        <h2>
-          <a href="/park/yosemite">Take me to Yosemite</a>
-        </h2>
         <div id="filters">
           <select id="state-filter">
             <option value="default" selected>---Filter by State</option>
@@ -147,21 +150,20 @@
           <li></li>
         </ul>
       </section>
-      <section id="state-page">
-      </section>
+      <section id="state-page"></section>
       <section id="park-page" class="flex-container">
-        <h1 id="park-name">Park Title</h1>
-        <div id="gov-data"></div>
-        <div id="twitter-feed"></div>
-        <div id="tsweet-container">
-          <button class="left-button previous-media"><</button>
-          <div id="tweet"></div>
-          <button class="right-button next-media">></button>
-        </div>
-        <div id="flickr-container">
-          <button class="left-button flickr-previous-media"><</button>
-          <div id="flickr"></div>
-          <button class="right-button flickr-next-media">></button>
+          <div id="gov-data"></div>
+        <div class="park-col">
+          <div id="tweet-container">
+            <button class="left-button previous-media"><</button>
+            <div id="tweet"></div>
+            <button class="right-button next-media">></button>
+          </div>
+          <div id="flickr-container">
+            <button class="left-button flickr-previous-media"><</button>
+            <div id="flickr"></div>
+            <button class="right-button flickr-next-media">></button>
+          </div>
         </div>
       </section>
       <section id="compare-page" class="flex-container">
@@ -192,7 +194,10 @@
       </section>
     </main>
 <!-- Footer -->
-    <footer>&copy; 2016 Couch Developers</footer>
+    <footer>
+      <a href="/about">About</a>
+      <p>&copy; 2016 Couch Developers</p>
+    </footer>
     <script src="npsapikey.js"></script>
 
     <!-- Vendor Scripts -->
@@ -214,6 +219,7 @@
     <!-- View scripts -->
     <script src="scripts/views/govView.js"></script>
     <script src="scripts/views/tweets.js"></script>
+    <script src="scripts/views/compareView.js"></script>
     <!-- Controller scripts -->
     <!-- <script src="scripts/controllers/flickr.js"></script> -->
     <script src="scripts/controllers/homeController.js"></script>

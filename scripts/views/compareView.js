@@ -1,16 +1,18 @@
 (function(module){
 
-var compareForm = {};
+  var compareForm = {};
 
-compareForm.submitForm = function(event) {
-  event.preventDefault();
-  var arr = []
-  arr.push($('form input').attr('checked'));
-  console.log(arr);
-}
+  compareForm.submitForm = function(event) {
+    event.preventDefault();
+    var arr = [];
+    $('form input:checked').each(function() {
+      arr.push($(this).val());
+    });
+    console.log(arr);
+  };
 
-$('form').on('submit', compareForm.submitForm);
+  $('form').on('submit', compareForm.submitForm);
 
-module.compareForm = compareForm;
+  module.compareForm = compareForm;
 
 })(window);
