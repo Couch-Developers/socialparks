@@ -2,6 +2,7 @@
 
 page('/',
   homeController.npsPortion,
+  homeController.resetFilters,
   homeController.index
   );
 
