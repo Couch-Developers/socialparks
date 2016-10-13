@@ -9,7 +9,152 @@
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all">
     <link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
     <meta charset="utf-8">
-    <title>SocialParks</title>
+    <title>SocialParks&#127794;</title>
+<!-- compare page template -->
+
+<script id="compare-template" type="text/x-handlebars-template">
+
+  <table>
+      <tr data-compare="name">
+        <th>
+
+        </th>
+
+        {{#each park}}
+        <th>
+          {{name}}
+        </th>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="designation">
+        <td>
+          Park Designation
+        </td>
+        {{#each park}}
+        <td>
+          {{designation}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="description">
+        <td>
+          Park Description
+        </td>
+        {{#each park}}
+        <td>
+          {{description}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="weather">
+        <td>
+          Weather
+        </td>
+        {{#each park}}
+        <td>
+          {{weatherInfo}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="address">
+        <td>
+          Park Address
+        </td>
+        {{#each park}}
+        <td>
+          {{#each addresses}}
+            <p>{{type}}</p>
+            <p>{{line1}}</p>
+            <p>{{city}}, {{stateCode}} {{postalCode}}</p>
+          {{/each}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="fees">
+        <td>
+          Park Fees
+        </td>
+        {{#each park}}
+        <td>
+          {{#each entranceFees}}
+            <p>{{title}}</p>
+            <p>{{description}}</p>
+            <p>${{cost}}</p>
+          {{/each}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="passes">
+        <td>Entrance Passes</td>
+        {{#each park}}
+        <td>
+          {{#each entrancePasses}}
+            <p>{{title}}</p>
+            <p>{{description}}</p>
+            <p>${{cost}}</p>
+
+          {{/each}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="hours">
+        <td>Park Hours</td>
+        {{#each park}}
+        <td>
+          {{#each operatingHours}}
+            <p>{{sunday}}</p>
+            <p>{{monday}}</p>
+            <p>{{tuesday}}</p>
+            <p>{{wednesday}}</p>
+            <p>{{thursday}}</p>
+            <p>{{friday}}</p>
+            <p>{{saturday}}</p>
+          {{/each}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="email">
+        <td>Email</td>
+        {{#each park}}
+        <td>
+          {{#each contacts.emailAddresses}}
+            <p>{{emailAddress}}</p>
+          {{/each}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="telephone">
+        <td>Email</td>
+        {{#each park}}
+        <td>
+          {{#each contacts.phoneNumbers}}
+            <p>{{type}}</p>
+            <p>{{phoneNumber}}</p>
+          {{/each}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="website">
+        <td>Website</td>
+        {{#each park}}
+        <td>
+          {{url}}
+        </td>
+        {{/each}}
+      </tr>
+    </table>
+</script>
+
 <!-- full data template -->
     <script id="gov-template" type="text/x-handlebars-template">
       <article>
@@ -167,24 +312,29 @@
           <h3>What do you care about comparing?</h3>
 
             <fieldset class="experience"><a href="#">Experience</a>
-              <input type="checkbox" name="experience" value="designation">Park Designation
-              <input type="checkbox" name="experince" value="weather">Weather
-              <input type="checkbox" name="experience" value="description">Description
+              <input type="checkbox" name="designation" value="designation">Park Designation
+              <input type="checkbox" name="weather" value="weather">Weather
+              <input type="checkbox" name="description" value="description">Description
             </fieldset>
             <fieldset class="entrance"><a href="#">Park Entrance</a>
-              <input type="checkbox" name="address">Address
-              <input type="checkbox" name="fees">Fees
-              <input type="checkbox" name="passes">Passes
-              <input type="checkbox" name="hours">Park Hours
+              <input type="checkbox" name="address" value="address">Address
+              <input type="checkbox" name="fees" value="fees">Fees
+              <input type="checkbox" name="passes" value="passes">Passes
+              <input type="checkbox" name="hours" value="hours">Park Hours
             </fieldset>
             <fieldset class="contact"><a href="#">Contact Info</a>
               <input type="checkbox" value="email">Email
               <input type="checkbox" value="phone">Telephone
+              <input type="checkbox" name="website" value="website">Website
             </fieldset>
             <button type="submit">Compare</button>
 
 
         </form>
+        <div id="compare-results">
+
+        </div>
+
 
       </section>
     </main>
