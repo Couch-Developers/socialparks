@@ -16,7 +16,7 @@
 
       parksObj.allParks = JSON.parse(localStorage.getItem('parkNames'));
       parksView.populateParksFilter(parksObj.allParks);
-      parksView.populateStateFilter(parksObj.allParks);
+      // parksView.populateStateFilter(parksObj.allParks);
 
     } else {
       $.ajax({
