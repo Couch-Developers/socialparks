@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="vendors/styles/normalize.css">
     <link rel="stylesheet" href="styles/base.css">
@@ -8,70 +9,68 @@
     <link rel="stylesheet" href="styles/modules.css">
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all">
     <meta charset="utf-8">
-    <title>SocialParks&#127794;</title>
+    <title></title>
 <!-- full data template -->
     <script id="gov-template" type="text/x-handlebars-template">
       <article>
-        <header id="park-header" style="background-color:lightgreen;background:url({{images.0.url}});background-repeat:no-repeat;background-position-x:center;background-position-y:center;background-attachment:fixed;background-size:cover">
-          <div id="park-name-des">
-            <h2>{{name}}</h2>
-            <h3><i>{{designation}}</i></h3>
+        <header>
+          <h2>{{name}}</h2>
+          <h3>{{designation}}</h3>
+          <div class="flex-container">
+            <div  class="flex-img">
+              <p>{{images.0.title}}</p>
+              <img src="{{images.0.url}}" alt="{{images.0.altText}}" />
+            </div>
           </div>
         </header>
-        <div id="nps-body">
-          <div id="nps-img" class="flex-img">
-            <p>{{images.1.title}}</p>
-            <img src="{{images.1.url}}" alt="{{images.1.altText}}" />
-          </div>
-          <p>{{description}}</p>
-          <p>{{weatherInfo}}</p>
+        <p>{{description}}</p>
+        <p>{{weatherInfo}}</p>
+        <ul>
           <ul>
-            <ul>
-              {{#each addresses}}
-                <li>{{type}}</li>
-                <li>{{line1}}</li>
-                <li>{{city}}, {{stateCode}} {{postalCode}}</li>
-              {{/each}}
-            </ul>
-            <ul>
-              {{#each operatingHours}}
-                <li>{{sunday}}</li>
-                <li>{{monday}}</li>
-                <li>{{tuesday}}</li>
-                <li>{{wednesday}}</li>
-                <li>{{thursday}}</li>
-                <li>{{friday}}</li>
-                <li>{{saturday}}</li>
-              {{/each}}
-            </ul>
-            <ul>
-              {{#each entranceFees}}
-                <li>{{title}}</li>
-                <li>{{description}}</li>
-                <li>${{cost}}</li>
-              {{/each}}
-            </ul>
-            <ul>
-              {{#each entrancePasses}}
-                <li>{{title}}</li>
-                <li>{{description}}</li>
-                <li>${{cost}}</li>
-              {{/each}}
-            </ul>
-            <ul>
-              {{#each contacts.emailAddresses}}
-                <li>{{emailAddress}}</li>
-              {{/each}}
-            </ul>
-            <ul>
-              {{#each contacts.phoneNumbers}}
-                <li>{{type}}</li>
-                <li>{{phoneNumber}}</li>
-              {{/each}}
-            </ul>
-            <li>{{url}}</li>
+            {{#each addresses}}
+              <li>{{type}}</li>
+              <li>{{line1}}</li>
+              <li>{{city}}, {{stateCode}} {{postalCode}}</li>
+            {{/each}}
           </ul>
-        </div>
+          <ul>
+            {{#each operatingHours}}
+              <li>{{sunday}}</li>
+              <li>{{monday}}</li>
+              <li>{{tuesday}}</li>
+              <li>{{wednesday}}</li>
+              <li>{{thursday}}</li>
+              <li>{{friday}}</li>
+              <li>{{saturday}}</li>
+            {{/each}}
+          </ul>
+          <ul>
+            {{#each entranceFees}}
+              <li>{{title}}</li>
+              <li>{{description}}</li>
+              <li>${{cost}}</li>
+            {{/each}}
+          </ul>
+          <ul>
+            {{#each entrancePasses}}
+              <li>{{title}}</li>
+              <li>{{description}}</li>
+              <li>${{cost}}</li>
+            {{/each}}
+          </ul>
+          <ul>
+            {{#each contacts.emailAddresses}}
+              <li>{{emailAddress}}</li>
+            {{/each}}
+          </ul>
+          <ul>
+            {{#each contacts.phoneNumbers}}
+              <li>{{type}}</li>
+              <li>{{phoneNumber}}</li>
+            {{/each}}
+          </ul>
+          <li>{{url}}</li>
+        </ul>
       </article>
     </script>
     <!-- Flickr data template -->
@@ -94,8 +93,13 @@
     <!-- State Page Template -->
     <script id="state-template" type="text/x-handlebars-template">
       <ul>
-        <li>
-          <label><input type="checkbox" id="{{parkCode}}"><h2>{{name}}</h2><br></label>
+        <li><label><input type="checkbox" id="selected-parks" value="{{parkCode}}"></label>
+          <ul class="goto-park">
+            <li><h2>{{name}}</h2></li>
+            <li><img src="{{images.1.url}}" style="max-width:100px; max-height:100px"/></li>
+            <li><p><strong>State: </strong>{{states}}</p></li>
+            <li><p><strong>Type: </strong>{{designation}}</p></li>
+          </ul>
         </li>
       </ul>
     </script>
@@ -119,11 +123,13 @@
     <main>
       <section id="landing-page" class="flex-container">
         <h1>Home Page</h1>
-        
+        <h2>
+          <a href="/park/yosemite">Take me to Yosemite</a>
+        </h2>
         <div id="filters">
-          <!-- <select id="state-filter">
+          <select id="state-filter">
             <option value="default" selected>---Filter by State</option>
-          </select> -->
+          </select>
           <select id="park-filter">
             <option value="default" selected>---Filter by Park</option>
           </select>
@@ -133,17 +139,18 @@
       </section>
       <section id="about-page">
         <h1>About Couch Developers</h1>
-        <p>We are students at Code Fellows and this is our final project for the Code 301 class.  This page provides a comparsion function for National Parks. This project uses public information from the Nation Parks service, Twitter, and Flickr, allowing a user to see the official information about the park, as well and images and Tweets from past visitors.</p>
-        <ul id="developers" class="flex-box">
-          <li class="flex-item"><img src="" />Steven Jackson</li>
-          <li class="flex-item"><img src="/images/Stephanie_Caulley.jpg" />Stephanie Caulley</li>
-          <li class="flex-item"><img src="" />Erica Hendricks</li>
-          <li class="flex-item"><img src="" />Andy Beers</li>
+        <p>We are students at Code Fellows and this is our final project for the Code 301 class.</p>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
         </ul>
       </section>
-      <section id="state-page" class="flex-container">
+      <section id="state-page">
       </section>
       <section id="park-page" class="flex-container">
+        <h1 id="park-name">Park Title</h1>
         <div id="gov-data"></div>
         <div id="twitter-feed"></div>
         <div id="tsweet-container">

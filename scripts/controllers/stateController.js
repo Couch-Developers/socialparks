@@ -2,7 +2,6 @@
   var stateController = {};
 
   stateController.index = function(){
-
     $('#state-page').fadeIn().siblings().hide();
   };
 
@@ -28,7 +27,7 @@
   stateController.fetchData = function(statesId, nextFunction) {
     $.ajax({
       type: 'GET',
-      url: '/nps/parks?stateCode=' + statesId,
+      url: '/nps/parks?fields=images&stateCode=' + statesId,
       success: function(data) {
         nextFunction(data);
       }
@@ -56,6 +55,7 @@
     obj.data.forEach(function(park) {
       $('#state-page').append(stateController.toHtml(park));
     });
+    parksView.navigateToPark();
   };
 
   module.stateController = stateController;
