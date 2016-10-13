@@ -6,7 +6,7 @@
   };
 
   parkController.emptyParkHtml = function(ctx, next) {
-    $('#twitter-feed').empty();
+    $('#tweet').empty();
     $('#gov-data').empty();
     $('#tweet').empty();
     $('#flickr').empty();
