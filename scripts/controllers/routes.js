@@ -3,6 +3,7 @@
 page('/',
   homeController.npsPortion,
   homeController.resetFilters,
+  homeController.parkFilter,
   homeController.index
   );
 

@@ -36,24 +36,26 @@
     }
   };
 
-  parksView.handleParksFilter = function() {
+  parksView.handleParksFilter = function(parkCode) {
     $('#park-filter').on('change', function() {
       if ($(this).val()) {
-        var codeValue = $(this).val();
-        $.ajax({
-          url: '/nps/parks?fields=addresses%2Ccontacts%2CentranceFees%2CentrancePasses%2Cimages%2CoperatingHours&parkCode=' + codeValue,
-          success: function(data) {
-            parksView.showPark(data.data[0]);
-          }
-        });
-      }
+        parkCode = $(this).val();
+      };
     });
   };
+
+  // renderParks(ctx)
+  // $.ajax({
+  //   url: '/nps/parks?fields=addresses%2Ccontacts%2CentranceFees%2CentrancePasses%2Cimages%2CoperatingHours&parkCode=' + ctx.parkCode,
+  //   success: function(data) {
+  //     parksView.showPark(data.data[0]);
+  //   }
+
 
   parksView.navigateFromParksFilter = function(ctx, next) {
     $('#park-filter').on('change', function() {
       var parkName = $('option[value=' + $(this).val() +']').text();
-      page('/park/' + parkName.toLowerCase().replace(/\W+/g, '+'));
+      page('/park/' + parkName.replace(/\W+/g, '+'));
     });
   };
 
