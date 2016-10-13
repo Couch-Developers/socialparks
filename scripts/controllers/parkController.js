@@ -14,7 +14,6 @@
   };
 
   parkController.loadParkData = function(ctx, next) {
-    
     parksObj.getPark(ctx.params.name);
     flickrData.fetchData(ctx.params.name, flickrData.populateHandlebars);
     twitter.requestTweets(ctx.params.name);

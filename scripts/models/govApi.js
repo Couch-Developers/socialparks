@@ -34,7 +34,6 @@
     $.ajax({
       url: baseUrl + parkController.nameToCode(name),
       success: function(data) {
-        console.log("I made the ajax call for getPark", data);
         parksView.showPark(data.data[0]);
       }
     });

@@ -35,15 +35,15 @@
       });
     }
   };
-
-  parksView.handleParksFilter = function(parkCode) {
-    $('#park-filter').on('change', function() {
-      if ($(this).val()) {
-        parkCode = $(this).val();
-      };
-    });
-  };
-
+// This code is not necessary, but I'm not yet willing to delete it.
+  // parksView.handleParksFilter = function(parkCode) {
+  //   $('#park-filter').on('change', function() {
+  //     if ($(this).val()) {
+  //       parkCode = $(this).val();
+  //     };
+  //   });
+  // };
+// This has been moved to govApi
   // renderParks(ctx)
   // $.ajax({
   //   url: '/nps/parks?fields=addresses%2Ccontacts%2CentranceFees%2CentrancePasses%2Cimages%2CoperatingHours&parkCode=' + ctx.parkCode,
@@ -65,7 +65,6 @@
 
   parksView.renderIndexPage = function() {
     parksObj.fetchParkNames();
-    parksView.handleParksFilter();
   };
 
   parksView.navigateFromParksFilter();

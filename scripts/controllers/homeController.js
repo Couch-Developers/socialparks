@@ -10,11 +10,6 @@
     next();
   };
 
-  homeController.parkFilter = function (ctx, next) {
-    console.log(ctx.parkCode);
-    parksView.handleParksFilter(ctx.parkCode);
-    next();
-  };
 
   homeController.resetFilters = function(cxt, next) {
     $('#park-filter').val('default');
