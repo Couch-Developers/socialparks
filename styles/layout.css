@@ -58,8 +58,17 @@ nav li:hover {
     flex-wrap: wrap;
   }
 
-  .flex-img {
-    width: 18%;
+  .flex-item {
+    width: 23%;
+  }
+  .flex-item img {
+    width: 100%;
+  }
+  #developers {
+    width: 100%;
+  }
+  #developers li {
+    display: inline-block;
   }
 
 }
