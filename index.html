@@ -156,7 +156,32 @@
           <button class="right-button flickr-next-media">></button>
         </div>
       </section>
-      <section id="compare-page" class="flex-container"></section>
+      <section id="compare-page" class="flex-container">
+        <h2>Compare Page</h2>
+        <form class="" action="#" method="#">
+          <h3>What do you care about comparing?</h3>
+
+            <fieldset class="experience"><a href="#">Experience</a>
+              <input type="checkbox" name="experience" value="designation">Park Designation
+              <input type="checkbox" name="experince" value="weather">Weather
+              <input type="checkbox" name="experience" value="description">Description
+            </fieldset>
+            <fieldset class="entrance"><a href="#">Park Entrance</a>
+              <input type="checkbox" name="address">Address
+              <input type="checkbox" name="fees">Fees
+              <input type="checkbox" name="passes">Passes
+              <input type="checkbox" name="hours">Park Hours
+            </fieldset>
+            <fieldset class="contact"><a href="#">Contact Info</a>
+              <input type="checkbox" value="email">Email
+              <input type="checkbox" value="phone">Telephone
+            </fieldset>
+            <button type="submit">Compare</button>
+
+
+        </form>
+
+      </section>
     </main>
 <!-- Footer -->
     <footer>&copy; 2016 Couch Developers</footer>
@@ -182,13 +207,12 @@
     <script src="scripts/views/govView.js"></script>
     <script src="scripts/views/tweets.js"></script>
     <!-- Controller scripts -->
-    <script src="scripts/controllers/flickr.js"></script>
+    <!-- <script src="scripts/controllers/flickr.js"></script> -->
     <script src="scripts/controllers/homeController.js"></script>
     <script src="scripts/controllers/aboutController.js"></script>
     <script src="scripts/controllers/parkController.js"></script>
     <script src="scripts/controllers/compareController.js"></script>
     <script src="scripts/controllers/stateController.js"></script>
     <script src="scripts/controllers/routes.js"></script>
-
     </body>
 </html>
