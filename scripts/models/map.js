@@ -32,7 +32,6 @@ var map = AmCharts.makeChart( 'chartdiv', {
 
       // bring it to an appropriate color
       map.returnInitialColor( event.mapObject );
-
       states = map.dataProvider.areas.filter(function(data){
         return data.showAsSelected === true;
       }).map(function(data){
@@ -81,7 +80,7 @@ var map = AmCharts.makeChart( 'chartdiv', {
 
         $('h2 .selection').empty();
         $('h2 .selection').append('State Selection:' + states.map(function(data){
-          return  ' ' + data.title;
+          return ' ' + data.title;
         }));
       }else {
         alert('Please keep your selection to only 3 states');

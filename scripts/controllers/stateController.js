@@ -11,22 +11,28 @@
     next();
   };
 
-  stateController.fetchData = function(stateId, nextFunction) {
+  stateController.loadData = function(ctx, next) {
+    var statesId = states.reduce(function(acc, curr, index) {
+      if (index === 0) {
+        return curr['id'];
+      } else {
+        acc = acc + ',' + curr['id'];
+        return acc;
+      }
+    }, '');
+    console.log(statesId);
+    stateController.fetchData(statesId, stateController.populateHandlebars);
+    next();
+  };
+
+  stateController.fetchData = function(statesId, nextFunction) {
     $.ajax({
       type: 'GET',
-      url: '/nps/parks?stateCode=' + stateId,
+      url: '/nps/parks?stateCode=' + statesId,
       success: function(data) {
         nextFunction(data);
       }
     });
-  };
-
-  stateController.loadData = function(ctx, next) {
-    var id = states.map(function (data) {
-      return data.id;
-    });
-    stateController.fetchData(id[0], stateController.populateHandlebars);
-    next();
   };
 
   // Handlebars template
@@ -34,9 +40,12 @@
     var template = Handlebars.compile($('#state-template').html());
     return template(obj);
   };
-
+// THIS IS STILL BROKEN ==> make this function spit out state-specific parks to the DOM
   stateController.populateHandlebars = function (obj) {
-    console.log(obj, "obj passed into function");
+    var stateName = states.map(function (data) {
+      return data.title;
+    });
+    $('#state-page').append('<h1>' + stateName[0] + '</h1>');
     obj.data.forEach(function(park) {
       $('#state-page').append(stateController.toHtml(park));
     });
