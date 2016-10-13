@@ -5,7 +5,20 @@
 header h1 {
   font-size: 3em;
   text-align: center;
-  padding: .25em;
+  padding: .25em 0 .25em .25em;
+}
+
+#site-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+#site-name .logo {
+  height: 4em;
+  width: 4em;
+  margin: 0;
 }
 
 /*Nav bar layout*/

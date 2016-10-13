@@ -16,8 +16,8 @@
           <h2>{{name}}</h2>
           <h3>{{designation}}</h3>
           <div class="flex-container">
-            {{#each images}}
-            <div  class="flex-img">
+            {{images[0]}}
+            <div class="flex-img">
               <p>{{title}}</p>
               <img src="{{url}}" alt="{{altText}}"/>
             </div>
@@ -103,8 +103,11 @@
   </head>
   <body>
 <!-- Header -->
-    <header>
-      <h1>SocialParks</h1>
+    <header id="main-header">
+      <div id="site-name">
+        <h1>SocialParks</h1>
+        <img class="logo" src="images/spLogo.png" alt="Social Parks logo">
+      </div>
       <nav>
         <ul>
           <li><a href="/">Home</a></li>
@@ -138,10 +141,10 @@
       <section id="state-page" class="flex-container">
       </section>
       <section id="park-page" class="flex-container">
-        <h1>Park Page</h1>
+        <h1 id="park-name">Park Title</h1>
         <div id="gov-data"></div>
         <div id="twitter-feed"></div>
-        <div id="tweet-container">
+        <div id="tsweet-container">
           <button class="left-button previous-media"><</button>
           <div id="tweet"></div>
           <button class="right-button next-media">></button>
