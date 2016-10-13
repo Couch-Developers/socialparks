@@ -5,11 +5,19 @@ var compareForm = {};
 compareForm.submitForm = function(event) {
   event.preventDefault();
   var arr = []
-  arr.push($('form input:checked').attr('value'));
-  console.log(arr);
-}
 
-$('form').on('submit', compareForm.submitForm);
+  $('form input:checked').each(function() {
+    arr.push($(this).val());
+  });
+  console.log(arr);
+  arr.forEach(function(el) {
+    $('tr[data-compare]').hide();
+    $('tr[data-compare=' + el + ']').show();
+  });
+};
+
+
+
 
 parksObj.CompareHtml = function(data) {
   var source = $('#compare-template').html();
@@ -26,6 +34,7 @@ compareForm.renderResults = function (arr) {
   $('#compare-results').append(newHtml);
 }
 
+$('form').on('submit', compareForm.submitForm);
 
 module.compareForm = compareForm;
 
