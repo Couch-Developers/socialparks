@@ -14,7 +14,8 @@ header a {
 main {
   background-color: #C9DEA9;
   color: #000;
-  padding-top: 1em;
+  padding: 0;
+  margin: 0;
   padding-bottom: 1em;
 }
 
@@ -22,10 +23,10 @@ main a {
   color: #000;
 }
 
-main section {
+/*main section {
   max-width: 95%;
   margin: auto;
-}
+}*/
 
 /*Footer styles*/
 footer {
@@ -53,25 +54,4 @@ ul {
 
 li {
   list-style: none;
-}
-
-/*Media queries*/
-/* bigger than a large smartphone*/
-@media screen and (min-width:480px) {
-
-
-}
-
-/*bigger than a tablet*/
-@media screen and (min-width:960px) {
-  #main-header nav {
-    max-width: 90%;
-    margin: auto;
-  }
-
-  main section {
-    max-width: 90%;
-  }
-
-
 }
