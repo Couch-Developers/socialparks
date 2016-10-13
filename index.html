@@ -16,12 +16,10 @@
           <h2>{{name}}</h2>
           <h3>{{designation}}</h3>
           <div class="flex-container">
-            {{#each images}}
             <div  class="flex-img">
-              <p>{{title}}</p>
-              <img src="{{url}}" alt="{{altText}}"/>
+              <p>{{images.0.title}}</p>
+              <img src="{{images.0.url}}" alt="{{images.0.altText}}" />
             </div>
-          {{/each}}
           </div>
         </header>
         <p>{{description}}</p>
@@ -134,6 +132,12 @@
       <section id="about-page">
         <h1>About Couch Developers</h1>
         <p>We are students at Code Fellows and this is our final project for the Code 301 class.</p>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
       </section>
       <section id="state-page" class="flex-container">
       </section>
@@ -195,16 +199,13 @@
     <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
     <script src="/scripts/models/map.js"></script>
     <script src="https://platform.twitter.com/widgets.js"></script>
-
-    <!-- View scripts -->
-    <script src="scripts/views/govView.js"></script>
-    <script src="scripts/views/tweets.js"></script>
-    <script src="scripts/views/compareView.js"></script>
     <!-- Model scripts -->
     <script src="scripts/models/flickr.js"></script>
     <script src="scripts/models/twitter.js"></script>
     <script src="scripts/models/govApi.js"></script>
-
+    <!-- View scripts -->
+    <script src="scripts/views/govView.js"></script>
+    <script src="scripts/views/tweets.js"></script>
     <!-- Controller scripts -->
     <!-- <script src="scripts/controllers/flickr.js"></script> -->
     <script src="scripts/controllers/homeController.js"></script>
@@ -213,6 +214,5 @@
     <script src="scripts/controllers/compareController.js"></script>
     <script src="scripts/controllers/stateController.js"></script>
     <script src="scripts/controllers/routes.js"></script>
-
     </body>
 </html>
