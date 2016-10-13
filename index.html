@@ -8,20 +8,20 @@
     <link rel="stylesheet" href="styles/modules.css">
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all">
     <meta charset="utf-8">
-    <title></title>
+    <title>SocialParks&#127794;</title>
 <!-- full data template -->
     <script id="gov-template" type="text/x-handlebars-template">
       <article>
-        <header>
-          <h2>{{name}}</h2>
-          <h3>{{designation}}</h3>
-          <div class="flex-container">
-            <div  class="flex-img">
-              <p>{{images.0.title}}</p>
-              <img src="{{images.0.url}}" alt="{{images.0.altText}}" />
-            </div>
+        <header id="park-header" style="background-color:lightgreen;background:url({{images.0.url}});background-repeat:no-repeat;background-position-x:center;background-position-y:center;background-attachment:fixed;background-size:cover">
+          <div id="park-name-des">
+            <h2>{{name}}</h2>
+            <h3><i>{{designation}}</i></h3>
           </div>
         </header>
+          <div id="nps-img" class="flex-img">
+            <p>{{images.1.title}}</p>
+            <img src="{{images.1.url}}" alt="{{images.1.altText}}" />
+          </div>
         <p>{{description}}</p>
         <p>{{weatherInfo}}</p>
         <ul>
@@ -145,7 +145,6 @@
       <section id="state-page" class="flex-container">
       </section>
       <section id="park-page" class="flex-container">
-        <h1 id="park-name">Park Title</h1>
         <div id="gov-data"></div>
         <div id="twitter-feed"></div>
         <div id="tsweet-container">
