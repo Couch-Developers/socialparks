@@ -38,9 +38,12 @@ footer {
 }
 
 /*Other styles*/
+p, h4, li {
+  font-family: 'Hind', sans-serif;
+}
+
 h1 {
   margin: 0;
-
 }
 
 a {
