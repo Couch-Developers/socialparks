@@ -39,8 +39,9 @@
       }
     });
   };
+  parksObj.counter = 0
 
-  parksObj.getMultiParks = function(arr) {
+  parksObj.getMultiParks = function(arr, callback) {
     parksObj.multiParks = [];
     var baseUrl = '/nps/parks?fields=addresses%2Ccontacts%2CentranceFees%2CentrancePasses%2Cimages%2CoperatingHours&parkCode=';
     arr.forEach(function(el){
@@ -48,8 +49,14 @@
         url: baseUrl + el,
         success: function(data) {
           parksObj.multiParks.push(data.data[0]);
+          parksObj.counter += 1;
+          if (parksObj.counter === arr.length) {
+            callback(parksObj.multiParks);
+          }
         }
-      });
+
+      }
+    );
     });
   };
 

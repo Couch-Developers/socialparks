@@ -18,6 +18,15 @@ parksObj.CompareHtml = function(data) {
   return html;
 };
 
+compareForm.renderResults = function (arr) {
+  var context = {park: arr};
+  console.log('context', context);
+  var newHtml =  parksObj.CompareHtml(context);
+  console.log('newHtml', newHtml);
+  $('#compare-results').append(newHtml);
+}
+
+
 module.compareForm = compareForm;
 
 })(window);

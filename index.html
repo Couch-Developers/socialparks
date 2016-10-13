@@ -14,7 +14,11 @@
 <script id="compare-template" type="text/x-handlebars-template">
 
   <table>
-      <tr>
+      <tr data-compare="name">
+        <th>
+
+        </th>
+
         {{#each park}}
         <th>
           {{name}}
@@ -22,16 +26,128 @@
         {{/each}}
       </tr>
 
-      <tr>
+      <tr data-compare="designation">
+        <td>
+          Park Designation
+        </td>
+        {{#each park}}
+        <td>
+          {{designation}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="description">
+        <td>
+          Park Description
+        </td>
+        {{#each park}}
+        <td>
+          {{description}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="weather">
+        <td>
+          Weather
+        </td>
+        {{#each park}}
+        <td>
+          {{weatherInfo}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="address">
+        <td>
+          Park Address
+        </td>
+        {{#each park}}
+        <td>
+          {{#each addresses}}
+            <p>{{type}}</p>
+            <p>{{line1}}</p>
+            <p>{{city}}, {{stateCode}} {{postalCode}}</p>
+          {{/each}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="fees">
+        <td>
+          Park Fees
+        </td>
+        {{#each park}}
+        <td>
+          {{#each entranceFees}}
+            <p>{{title}}</p>
+            <p>{{description}}</p>
+            <p>${{cost}}</p>
+          {{/each}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="passes">
+        <td>Entrance Passes</td>
         {{#each park}}
         <td>
           {{#each entrancePasses}}
-          <ul>
-            <li>{{title}}</li>
-            <li>{{description}}</li>
-            <li>${{cost}}</li>
-          <ul>
+            <p>{{title}}</p>
+            <p>{{description}}</p>
+            <p>${{cost}}</p>
+
           {{/each}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="hours">
+        <td>Park Hours</td>
+        {{#each park}}
+        <td>
+          {{#each operatingHours}}
+            <p>{{sunday}}</p>
+            <p>{{monday}}</p>
+            <p>{{tuesday}}</p>
+            <p>{{wednesday}}</p>
+            <p>{{thursday}}</p>
+            <p>{{friday}}</p>
+            <p>{{saturday}}</p>
+          {{/each}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="email">
+        <td>Email</td>
+        {{#each park}}
+        <td>
+          {{#each contacts.emailAddresses}}
+            <p>{{emailAddress}}</p>
+          {{/each}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="telephone">
+        <td>Email</td>
+        {{#each park}}
+        <td>
+          {{#each contacts.phoneNumbers}}
+            <p>{{type}}</p>
+            <p>{{phoneNumber}}</p>
+          {{/each}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="website">
+        <td>Website</td>
+        {{#each park}}
+        <td>
+          {{url}}
         </td>
         {{/each}}
       </tr>
@@ -176,6 +292,7 @@
       <section id="park-page" class="flex-container">
         <div id="gov-data"></div>
         <div id="twitter-feed"></div>
+<!-- TODO: GINORMOUS SPELLING ERROR ON LINE BELOW SHOULD BE TWEETS -->
         <div id="tsweet-container">
           <button class="left-button previous-media"><</button>
           <div id="tweet"></div>
@@ -211,6 +328,9 @@
 
 
         </form>
+        <div id="compare-results">
+
+        </div>
 
 
       </section>
