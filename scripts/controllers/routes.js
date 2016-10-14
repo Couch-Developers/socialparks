@@ -15,7 +15,7 @@ page('/park/:name',
   parkController.loadParkData,
   parkController.index);
 
-page('/states/:state1/',
+page('/states',
   stateController.emptyHtml,
   stateController.loadData,
   stateController.index);

@@ -44,12 +44,8 @@ var map = AmCharts.makeChart( 'chartdiv', {
         var select = $('<button>', {
           text: 'Select State',
           click: function(e) {
-            var stateId = states.map(function(data){
-              return '/states/' + data.title;
-            });
-            console.log(stateId);
+            page('/states');
             e.preventDefault();
-            page(stateId[0]);
           }
         });
         $('h2 .state-button').append(select);
@@ -59,16 +55,8 @@ var map = AmCharts.makeChart( 'chartdiv', {
         var select = $('<button>', {
           text: 'Select States',
           click: function(e) {
-            var stateId = states.map(function(data){
-              return data.title;
-            });
-            console.log(stateId);
+            page('/states');
             e.preventDefault();
-            if (stateId.length === 2){
-              page('/states/' + stateId[1] + '/' + stateId[0]);
-            } else {
-              page('/states/' + stateId[2] + '/' + stateId[1] + '/' + stateId[0]);
-            }
           }
         });
         $('h2 .state-button').append(select);
@@ -76,7 +64,7 @@ var map = AmCharts.makeChart( 'chartdiv', {
         $('h2 .state-button').empty();
       };
 
-      if (states.length <= +5){
+      if (states.length <= 5){
 
         $('h2 .selection').empty();
         $('h2 .selection').append('State Selection:' + states.reduce(function (acc, curr, index) {
