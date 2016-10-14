@@ -86,12 +86,13 @@ header h1 {
   position: relative;
   border-radius: 50px;
   box-shadow: inset 0 1px 1px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.2);
+
 }
 .selected-parks:after {
     content: 'Select';
     color: #000;
     position: absolute;
-    right: 10px;
+    right: 10%;
     z-index: 0;
     font: 12px/26px Arial, sans-serif;
     font-weight: bold;
@@ -101,7 +102,7 @@ header h1 {
     content: 'Selected';
     color: #27ae60;
     position: absolute;
-    left: 10px;
+    left: 10%;
     z-index: 0;
     font: 12px/26px Arial, sans-serif;
     font-weight: bold;
@@ -113,7 +114,7 @@ header h1 {
     cursor: pointer;
     position: absolute;
     top: 3px;
-    left: 3px;
+    left: 10%;
     z-index: 1;
     background: #fcfff4;
     background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
@@ -126,6 +127,7 @@ header h1 {
 }
 
 .selected-parks input[type=checkbox]:checked + label {
+  background-color: #E86523;
   left:70%;
 }
 
@@ -144,8 +146,8 @@ header h1 {
 
 #compare-form {
   position: fixed;
-  top: 15em;
-  right: 17em;
+  top: 24%;
+  right: 11%;
   display: flex;
   background-color: #58B14C;
   box-shadow: .7em .85em  1.5em rgba(0, 6, 49, 0.6);

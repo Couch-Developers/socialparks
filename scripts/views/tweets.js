@@ -22,12 +22,14 @@
 
   tweets.buttonHandler = function() {
     $('button.next-media').on('click', function() {
+      $('#tweet-container button').hide();
       if (twitter.allTweetsIndex < (twitter.allTweetsId.length - 1)) {
         twitter.allTweetsIndex++;
         tweets.renderTweets(twitter.allTweetsIndex);
       }
     });
     $('button.previous-media').on('click', function() {
+      $('#tweet-container button').hide();
       if (twitter.allTweetsIndex > 0) {
         twitter.allTweetsIndex--;
         tweets.renderTweets(twitter.allTweetsIndex);
