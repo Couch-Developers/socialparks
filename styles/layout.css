@@ -21,25 +21,38 @@ header h1 {
   margin: 0;
 }
 
-/*Nav bar layout*/
-nav li {
-  font-size: 1.25em;
-  text-align: center;
-  padding: .25em;
-}
-
-nav a  {
-  padding: .25em 5em;
-}
-
-nav li:hover {
-  background-color: #41631E;
-  font-weight: bold;
-}
-
 #chartdiv {
   width: 100%;
-  height: 500px;
+  float: left;
+  height: 750px;
+  clear: right;
+  margin: 0 3em 3em 3em;
+}
+
+#filters-wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/*Adapted from a codepen on select css styling https://codepen.io/ericrasch/pen/zjDBx*/
+#filters {
+  margin: 0 auto;
+  overflow:hidden;
+  width:350px;
+  border-radius: 9px 9px 9px 9px;
+  box-shadow: 1px 1px 11px #330033;
+  background: #58B14C no-repeat scroll 319px center;
+  align-self: flex-end;
+}
+
+#filters select {
+   border: 0;
+   width:350px;
+   color: #254515;
+   background: transparent;
+   font-size: 20px;
+   font-weight: bold;
+   *background: #58B14C;
 }
 
 /*Clearfix*/
