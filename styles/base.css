@@ -89,17 +89,34 @@ li {
   list-style: none;
 }
 
-@media screen and (min-width:960px) {
-  html {
-    background: url("../images/backgroundimage.jpg") fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+
+#compare-results td {
+  padding: 1em;
+  border-left: #E86523;
+  border-right: #E86523;
+  border-left-style: solid;
+  border-right-style: solid;
+  text-align: center;
+  background-color: #C9DEA9;
+  margin: 0;
+}
+
+#compare-results td:first-of-type {
+  border: none;
+  background-color: 244515;
+  color: white;
+  font-weight: bold;
+}
+
+#compare-results th {
+  background-color: 244515;
+  color: white;
+  padding: 1.5em;
   }
+#compare-results h3 {
+  font-weight: bold;
+}
 
-  #content-body {
-    width: 75%;
-    margin: 2% auto;
-  }
-
-
+#compare-results h4 {
+  font-weight: bold;
 }
