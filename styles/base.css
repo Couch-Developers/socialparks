@@ -89,6 +89,37 @@ li {
   list-style: none;
 }
 
+#compare-results td {
+  padding: 1em;
+  border-left: #E86523;
+  border-right: #E86523;
+  border-left-style: solid;
+  border-right-style: solid;
+  text-align: center;
+  background-color: #C9DEA9;
+  margin: 0;
+}
+
+#compare-results td:first-of-type {
+  border: none;
+  background-color: 244515;
+  color: white;
+  font-weight: bold;
+}
+
+#compare-results th {
+  background-color: 244515;
+  color: white;
+  padding: 1.5em;
+  }
+#compare-results h3 {
+  font-weight: bold;
+}
+
+#compare-results h4 {
+  font-weight: bold;
+}
+
 @media screen and (min-width:960px) {
   html {
     background: url("../images/backgroundimage.jpg") fixed;
