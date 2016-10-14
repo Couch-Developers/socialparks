@@ -21,6 +21,8 @@ compareForm.submitForm = function(event) {
   });
 
   parksObj.getMultiParks(parkArr, compareForm.renderResults)
+
+  page('/compare');
 };
 
 
