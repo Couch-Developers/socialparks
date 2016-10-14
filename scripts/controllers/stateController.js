@@ -3,7 +3,7 @@
 
   stateController.index = function(){
     $('#state-page').fadeIn().siblings().hide();
-    
+    $('#compare-form').show();
   };
 
   stateController.emptyHtml = function(ctx, next) {
