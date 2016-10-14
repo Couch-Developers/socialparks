@@ -10,8 +10,8 @@ compareForm.submitForm = function(event) {
     arr.push($(this).val());
   });
   console.log(arr);
+  $('tr[data-compare]').hide();
   arr.forEach(function(el) {
-    $('tr[data-compare]').hide();
     $('tr[data-compare=' + el + ']').show();
   });
 };
