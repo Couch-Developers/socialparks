@@ -89,7 +89,9 @@ li {
   list-style: none;
 }
 
-
+#compare-results h2 {
+  font-weight: bold;
+}
 #compare-results td {
   padding: 1em;
   border-left: #E86523;
@@ -103,13 +105,13 @@ li {
 
 #compare-results td:first-of-type {
   border: none;
-  background-color: 244515;
+  background-color: #244515;
   color: white;
   font-weight: bold;
 }
 
 #compare-results th {
-  background-color: 244515;
+  background-color: #244515;
   color: white;
   padding: 1.5em;
   }
@@ -119,4 +121,29 @@ li {
 
 #compare-results h4 {
   font-weight: bold;
+}
+
+#compare-form button[type="submit"] {
+  padding: 1em;
+  background-color: #E86523;
+  color: white;
+  display: block;
+  margin: auto;
+  font-weight: bold;
+  border-radius: 3px;
+  border: none;
+  margin-top: .5em;
+  margin-bottom: .5em;
+
+}
+
+#compare-form fieldset {
+  border: none;
+
+}
+
+#compare-form a {
+  font-weight: bold;
+  display: block;
+  padding-bottom: .5em;
 }
