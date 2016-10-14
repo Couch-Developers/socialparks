@@ -12,7 +12,6 @@ html {
 }
 
 .block-style {
-  margin: 2em 1em 1em 1em;
   box-shadow: .7em .85em  1.5em rgba(0, 6, 49, 0.6);
   border-radius: .25em;
 }
