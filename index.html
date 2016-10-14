@@ -246,7 +246,7 @@
     <!-- State Page Template -->
     <script id="state-template" type="text/x-handlebars-template">
       <ul>
-        <li><label><input type="checkbox" id="selected-parks" value="{{parkCode}}"></label>
+        <li><label><input type="checkbox" class="selected-parks" value="{{parkCode}}"></label>
           <ul class="goto-park">
             <li><h2>{{name}}</h2></li>
             <li><img src="{{images.1.url}}" style="max-width:100px; max-height:100px"/></li>
@@ -280,16 +280,16 @@
       <section id="about-page">
         <h1>About Couch Developers</h1>
         <p>We are students at Code Fellows and this is our final project for the Code 301 class.  This page provides a comparsion function for National Parks. This project uses public information from the Nation Parks service, Twitter, and Flickr, allowing a user to see the official information about the park, as well and images and Tweets from past visitors.</p>
-        <ul id="developers" class="flex-box">
+        <ul id="developers" class="flex-container">
           <li class="flex-item"><img src="/images/Steven_Jackson.jpg" />Steven Jackson</li>
           <li class="flex-item"><img src="/images/Stephanie_Caulley.jpg" />Stephanie Caulley</li>
           <li class="flex-item"><img src="/images/Erica_Hendricks.jpg" />Erica Hendricks</li>
-          <li class="flex-item"><img src="/images/Andy_Beers.jpg" />Andy Beers</li>
+          <li class="flex-item"><img src="/images/andy_pic.jpg" />Andy Beers</li>
         </ul>
       </section>
       <section id="state-page"></section>
       <section id="park-page" class="group">
-        <div id="gov-data"></div>
+          <div id="gov-data"></div>
         <div class="park-col2">
           <div id="tweet-container">
             <button class="left-button previous-media"><</button>
@@ -305,6 +305,12 @@
       </section>
       <section id="compare-page" class="flex-container">
         <h2>Compare Page</h2>
+
+        <div id="compare-results">
+
+        </div>
+      </section>
+      <section id="compare-form">
         <form class="" action="#" method="#">
           <h3>What do you care about comparing?</h3>
 
@@ -325,14 +331,7 @@
               <input type="checkbox" name="website" value="website">Website
             </fieldset>
             <button type="submit">Compare</button>
-
-
         </form>
-        <div id="compare-results">
-
-        </div>
-
-
       </section>
     </main>
 <!-- Footer -->

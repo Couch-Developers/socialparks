@@ -4,19 +4,26 @@ var compareForm = {};
 
 compareForm.submitForm = function(event) {
   event.preventDefault();
-  var arr = []
+  var compareArr = [];
+  var parkArr = [];
+
+  $('.selected-parks:checked').each(function() {
+    parkArr.push($(this).val());
+  })
 
   $('form input:checked').each(function() {
-    arr.push($(this).val());
+    compareArr.push($(this).val());
   });
-  console.log(arr);
-  arr.forEach(function(el) {
-    $('tr[data-compare]').hide();
+
+  $('tr[data-compare]').hide();
+  compareArr.forEach(function(el) {
     $('tr[data-compare=' + el + ']').show();
   });
+
+  parksObj.getMultiParks(parkArr, compareForm.renderResults)
+
+  page('/compare');
 };
-
-
 
 
 parksObj.CompareHtml = function(data) {
@@ -27,6 +34,7 @@ parksObj.CompareHtml = function(data) {
 };
 
 compareForm.renderResults = function (arr) {
+
   var context = {park: arr};
   console.log('context', context);
   var newHtml =  parksObj.CompareHtml(context);
