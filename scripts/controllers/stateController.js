@@ -3,6 +3,7 @@
 
   stateController.index = function(){
     $('#state-page').fadeIn().siblings().hide();
+    
   };
 
   stateController.emptyHtml = function(ctx, next) {
@@ -57,6 +58,8 @@
     });
     parksView.navigateToPark();
   };
+
+  parkSelect =
 
   module.stateController = stateController;
 
