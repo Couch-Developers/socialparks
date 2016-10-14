@@ -76,12 +76,19 @@ var map = AmCharts.makeChart( 'chartdiv', {
         $('h2 .state-button').empty();
       };
 
-      if (states.length <=3){
+      if (states.length <= +5){
 
         $('h2 .selection').empty();
-        $('h2 .selection').append('State Selection:' + states.map(function(data){
-          return ' ' + data.title;
-        }));
+        $('h2 .selection').append('State Selection:' + states.reduce(function (acc, curr, index) {
+          var lastElem = states.length - 1;
+          if (index === 0) {
+            return ' ' + curr['title'];
+          } else if (lastElem === index) {
+            return acc = acc + ' and ' + curr['title'];
+          } else {
+            return acc = acc + ', ' + curr['title'];
+          }
+        }, ''));
       }else {
         alert('Please keep your selection to only 3 states');
         // deselect the area by assigning all of the dataProvider as selected object

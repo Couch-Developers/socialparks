@@ -1,76 +1,228 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="vendors/styles/normalize.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
     <meta charset="utf-8">
     <title>SocialParks&#127794;</title>
+<!-- compare page template -->
+
+<script id="compare-template" type="text/x-handlebars-template">
+
+  <table>
+      <tr data-compare="name">
+        <th>
+
+        </th>
+
+        {{#each park}}
+        <th>
+          {{name}}
+        </th>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="designation">
+        <td>
+          Park Designation
+        </td>
+        {{#each park}}
+        <td>
+          {{designation}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="description">
+        <td>
+          Park Description
+        </td>
+        {{#each park}}
+        <td>
+          {{description}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="weather">
+        <td>
+          Weather
+        </td>
+        {{#each park}}
+        <td>
+          {{weatherInfo}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="address">
+        <td>
+          Park Address
+        </td>
+        {{#each park}}
+        <td>
+          {{#each addresses}}
+            <p>{{type}}</p>
+            <p>{{line1}}</p>
+            <p>{{city}}, {{stateCode}} {{postalCode}}</p>
+          {{/each}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="fees">
+        <td>
+          Park Fees
+        </td>
+        {{#each park}}
+        <td>
+          {{#each entranceFees}}
+            <p>{{title}}</p>
+            <p>{{description}}</p>
+            <p>${{cost}}</p>
+          {{/each}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="passes">
+        <td>Entrance Passes</td>
+        {{#each park}}
+        <td>
+          {{#each entrancePasses}}
+            <p>{{title}}</p>
+            <p>{{description}}</p>
+            <p>${{cost}}</p>
+
+          {{/each}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="hours">
+        <td>Park Hours</td>
+        {{#each park}}
+        <td>
+          {{#each operatingHours}}
+            <p>{{sunday}}</p>
+            <p>{{monday}}</p>
+            <p>{{tuesday}}</p>
+            <p>{{wednesday}}</p>
+            <p>{{thursday}}</p>
+            <p>{{friday}}</p>
+            <p>{{saturday}}</p>
+          {{/each}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="email">
+        <td>Email</td>
+        {{#each park}}
+        <td>
+          {{#each contacts.emailAddresses}}
+            <p>{{emailAddress}}</p>
+          {{/each}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="telephone">
+        <td>Email</td>
+        {{#each park}}
+        <td>
+          {{#each contacts.phoneNumbers}}
+            <p>{{type}}</p>
+            <p>{{phoneNumber}}</p>
+          {{/each}}
+        </td>
+        {{/each}}
+      </tr>
+
+      <tr data-compare="website">
+        <td>Website</td>
+        {{#each park}}
+        <td>
+          {{url}}
+        </td>
+        {{/each}}
+      </tr>
+    </table>
+</script>
+
 <!-- full data template -->
     <script id="gov-template" type="text/x-handlebars-template">
       <article>
         <header id="park-header" style="background-color:lightgreen;background:url({{images.0.url}});background-repeat:no-repeat;background-position-x:center;background-position-y:center;background-attachment:fixed;background-size:cover">
           <div id="park-name-des">
             <h2>{{name}}</h2>
-            <h3><i>{{designation}}</i></h3>
+            <h4><i>{{designation}}</i></h4>
           </div>
         </header>
-        <div id="nps-body">
-          <div id="nps-img" class="flex-img">
+        <div id="nps-body" class="park-col1">
+          <div id="nps-img">
+            <img src="{{images.1.url}}" alt="{{images.1.altText}}">
             <p>{{images.1.title}}</p>
-            <img src="{{images.1.url}}" alt="{{images.1.altText}}" />
           </div>
+          <h4>About:</h4>
           <p>{{description}}</p>
+          <h4>Weather Information:</h4>
           <p>{{weatherInfo}}</p>
+          <h4>Addresses:</h4>
           <ul>
-            <ul>
-              {{#each addresses}}
-                <li>{{type}}</li>
-                <li>{{line1}}</li>
-                <li>{{city}}, {{stateCode}} {{postalCode}}</li>
-              {{/each}}
-            </ul>
-            <ul>
-              {{#each operatingHours}}
-                <li>{{sunday}}</li>
-                <li>{{monday}}</li>
-                <li>{{tuesday}}</li>
-                <li>{{wednesday}}</li>
-                <li>{{thursday}}</li>
-                <li>{{friday}}</li>
-                <li>{{saturday}}</li>
-              {{/each}}
-            </ul>
-            <ul>
-              {{#each entranceFees}}
-                <li>{{title}}</li>
-                <li>{{description}}</li>
-                <li>${{cost}}</li>
-              {{/each}}
-            </ul>
-            <ul>
-              {{#each entrancePasses}}
-                <li>{{title}}</li>
-                <li>{{description}}</li>
-                <li>${{cost}}</li>
-              {{/each}}
-            </ul>
-            <ul>
-              {{#each contacts.emailAddresses}}
-                <li>{{emailAddress}}</li>
-              {{/each}}
-            </ul>
-            <ul>
-              {{#each contacts.phoneNumbers}}
-                <li>{{type}}</li>
-                <li>{{phoneNumber}}</li>
-              {{/each}}
-            </ul>
-            <li>{{url}}</li>
+            {{#each addresses}}
+              <li>{{type}}</li>
+              <li>{{line1}}</li>
+              <li>{{city}}, {{stateCode}} {{postalCode}}</li>
+            {{/each}}
           </ul>
+          <h4>Operating Hours:</h4>
+          <ul>
+            {{#each operatingHours}}
+              <li>{{sunday}}</li>
+              <li>{{monday}}</li>
+              <li>{{tuesday}}</li>
+              <li>{{wednesday}}</li>
+              <li>{{thursday}}</li>
+              <li>{{friday}}</li>
+              <li>{{saturday}}</li>
+            {{/each}}
+          </ul>
+          <h4>Entrance Fees:</h4>
+          <ul>
+            {{#each entranceFees}}
+              <li>{{title}}</li>
+              <li>{{description}}</li>
+              <li>${{cost}}</li>
+            {{/each}}
+          </ul>
+          <h4>Entrance Passes:</h4>
+          <ul>
+            {{#each entrancePasses}}
+              <li>{{title}}</li>
+              <li>{{description}}</li>
+              <li>${{cost}}</li>
+            {{/each}}
+          </ul>
+          <h4>Contact Info:</h4>
+          <ul>
+            {{#each contacts.emailAddresses}}
+              <li>{{emailAddress}}</li>
+            {{/each}}
+          </ul>
+          <ul>
+            {{#each contacts.phoneNumbers}}
+              <li>{{type}}</li>
+              <li>{{phoneNumber}}</li>
+            {{/each}}
+          </ul>
+          <li>{{url}}</li>
         </div>
       </article>
     </script>
@@ -94,9 +246,13 @@
     <!-- State Page Template -->
     <script id="state-template" type="text/x-handlebars-template">
       <ul>
-        <li>
-          <h1></h1>
-          <label><input type="checkbox" id="{{parkCode}}"><h2>{{name}}</h2><br></label>
+        <li><label><input type="checkbox" id="selected-parks" value="{{parkCode}}"></label>
+          <ul class="goto-park">
+            <li><h2>{{name}}</h2></li>
+            <li><img src="{{images.1.url}}" style="max-width:100px; max-height:100px"/></li>
+            <li><p><strong>State: </strong>{{states}}</p></li>
+            <li><p><strong>Type: </strong>{{designation}}</p></li>
+          </ul>
         </li>
       </ul>
     </script>
@@ -104,14 +260,12 @@
   <body>
 <!-- Header -->
     <header id="main-header">
-      <div id="site-name">
+      <a href="/"><div id="site-name">
         <h1>SocialParks</h1>
         <img class="logo" src="images/spLogo.png" alt="Social Parks logo">
-      </div>
+      </div></a>
       <nav>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
           <li><a href="/compare">Compare</a></li>
         </ul>
       </nav>
@@ -120,9 +274,6 @@
     <main>
       <section id="landing-page" class="flex-container">
         <h1>Home Page</h1>
-        <h2>
-          <a href="/park/yosemite">Take me to Yosemite</a>
-        </h2>
         <div id="filters">
           <select id="state-filter">
             <option value="default" selected>---Filter by State</option>
@@ -144,20 +295,20 @@
           <li class="flex-item"><img src="/images/Andy_Beers.jpg" />Andy Beers</li>
         </ul>
       </section>
-      <section id="state-page" class="flex-container">
-      </section>
-      <section id="park-page" class="flex-container">
+      <section id="state-page"></section>
+      <section id="park-page" class="group">
         <div id="gov-data"></div>
-        <div id="twitter-feed"></div>
-        <div id="tsweet-container">
-          <button class="left-button previous-media"><</button>
-          <div id="tweet"></div>
-          <button class="right-button next-media">></button>
-        </div>
-        <div id="flickr-container">
-          <button class="left-button flickr-previous-media"><</button>
-          <div id="flickr"></div>
-          <button class="right-button flickr-next-media">></button>
+        <div class="park-col2">
+          <div id="tweet-container">
+            <button class="left-button previous-media"><</button>
+            <div id="tweet"></div>
+            <button class="right-button next-media">></button>
+          </div>
+          <div id="flickr-container">
+            <button class="left-button flickr-previous-media"><</button>
+            <div id="flickr"></div>
+            <button class="right-button flickr-next-media">></button>
+          </div>
         </div>
       </section>
       <section id="compare-page" class="flex-container">
@@ -166,29 +317,37 @@
           <h3>What do you care about comparing?</h3>
 
             <fieldset class="experience"><a href="#">Experience</a>
-              <input type="checkbox" name="experience" value="designation">Park Designation
-              <input type="checkbox" name="experince" value="weather">Weather
-              <input type="checkbox" name="experience" value="description">Description
+              <input type="checkbox" name="designation" value="designation">Park Designation
+              <input type="checkbox" name="weather" value="weather">Weather
+              <input type="checkbox" name="description" value="description">Description
             </fieldset>
             <fieldset class="entrance"><a href="#">Park Entrance</a>
-              <input type="checkbox" name="address">Address
-              <input type="checkbox" name="fees">Fees
-              <input type="checkbox" name="passes">Passes
-              <input type="checkbox" name="hours">Park Hours
+              <input type="checkbox" name="address" value="address">Address
+              <input type="checkbox" name="fees" value="fees">Fees
+              <input type="checkbox" name="passes" value="passes">Passes
+              <input type="checkbox" name="hours" value="hours">Park Hours
             </fieldset>
             <fieldset class="contact"><a href="#">Contact Info</a>
               <input type="checkbox" value="email">Email
               <input type="checkbox" value="phone">Telephone
+              <input type="checkbox" name="website" value="website">Website
             </fieldset>
             <button type="submit">Compare</button>
 
 
         </form>
+        <div id="compare-results">
+
+        </div>
+
 
       </section>
     </main>
 <!-- Footer -->
-    <footer>&copy; 2016 Couch Developers</footer>
+    <footer>
+      <a href="/about">About</a>
+      <p>&copy; 2016 Couch Developers</p>
+    </footer>
     <script src="npsapikey.js"></script>
 
     <!-- Vendor Scripts -->
@@ -210,6 +369,7 @@
     <!-- View scripts -->
     <script src="scripts/views/govView.js"></script>
     <script src="scripts/views/tweets.js"></script>
+    <script src="scripts/views/compareView.js"></script>
     <!-- Controller scripts -->
     <!-- <script src="scripts/controllers/flickr.js"></script> -->
     <script src="scripts/controllers/homeController.js"></script>

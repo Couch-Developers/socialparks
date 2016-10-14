@@ -2,7 +2,6 @@
   var stateController = {};
 
   stateController.index = function(){
-
     $('#state-page').fadeIn().siblings().hide();
   };
 
@@ -28,7 +27,7 @@
   stateController.fetchData = function(statesId, nextFunction) {
     $.ajax({
       type: 'GET',
-      url: '/nps/parks?stateCode=' + statesId,
+      url: '/nps/parks?fields=images&stateCode=' + statesId,
       success: function(data) {
         nextFunction(data);
       }
@@ -42,13 +41,21 @@
   };
 // THIS IS STILL BROKEN ==> make this function spit out state-specific parks to the DOM
   stateController.populateHandlebars = function (obj) {
-    var stateName = states.map(function (data) {
-      return data.title;
-    });
-    $('#state-page').append('<h1>' + stateName[0] + '</h1>');
+    var lastElem = states.length - 1;
+    var stateName = states.reduce(function (acc, curr, index) {
+      if (index === 0) {
+        return ' ' + curr['title'];
+      } else if (lastElem === index) {
+        return acc = acc + ' and ' + curr['title'];
+      } else {
+        return acc = acc + ', ' + curr['title'];
+      }
+    }, '');
+    $('#state-page').append('<h1>Parks in: ' + stateName + '</h1>');
     obj.data.forEach(function(park) {
       $('#state-page').append(stateController.toHtml(park));
     });
+    parksView.navigateToPark();
   };
 
   module.stateController = stateController;
