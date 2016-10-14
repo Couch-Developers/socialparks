@@ -211,9 +211,15 @@
     margin: auto;
   }*/
 
-  /*.park-col {
-    display: flex;
+  #nps-body {
+    display: inline-block;
     width: 45%;
-    align-items: center;
-    justify-content: center;
-  }*/
+    float: left;
+    margin: 0;
+  }
+
+  .park-col2 {
+    display: inline-block;
+    width: 45%;
+    float: right;
+  }
