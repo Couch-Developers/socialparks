@@ -68,7 +68,7 @@
         {{#each park}}
         <td>
           {{#each addresses}}
-            <p>{{type}}</p>
+            <p><b>{{type}}</b></p>
             <p>{{line1}}</p>
             <p>{{city}}, {{stateCode}} {{postalCode}}</p>
           {{/each}}
@@ -83,7 +83,7 @@
         {{#each park}}
         <td>
           {{#each entranceFees}}
-            <p>{{title}}</p>
+            <p><b>{{title}}</b></p>
             <p>{{description}}</p>
             <p>${{cost}}</p>
           {{/each}}
@@ -96,7 +96,7 @@
         {{#each park}}
         <td>
           {{#each entrancePasses}}
-            <p>{{title}}</p>
+            <p><b>{{title}}</b></p>
             <p>{{description}}</p>
             <p>${{cost}}</p>
 
@@ -109,15 +109,13 @@
         <td>Park Hours</td>
         {{#each park}}
         <td>
-          {{#each operatingHours}}
-            <p>{{sunday}}</p>
-            <p>{{monday}}</p>
-            <p>{{tuesday}}</p>
-            <p>{{wednesday}}</p>
-            <p>{{thursday}}</p>
-            <p>{{friday}}</p>
-            <p>{{saturday}}</p>
-          {{/each}}
+          <p><b>Sunday: </b>{{operatingHours.0.standardHours.sunday}}</p>
+          <p><b>Monday: </b>{{operatingHours.0.standardHours.monday}}</p>
+          <p><b>Tuesday: </b>{{operatingHours.0.standardHours.tuesday}}</p>
+          <p><b>Wednesday: </b>{{operatingHours.0.standardHours.wednesday}}</p>
+          <p><b>Thursday: </b>{{operatingHours.0.standardHours.thursday}}</p>
+          <p><b>Friday: </b>{{operatingHours.0.standardHours.friday}}</p>
+          <p><b>Saturday: </b>{{operatingHours.0.standardHours.saturday}}</p>
         </td>
         {{/each}}
       </tr>
@@ -138,7 +136,7 @@
         {{#each park}}
         <td>
           {{#each contacts.phoneNumbers}}
-            <p>{{type}}</p>
+            <p><b>{{type}}</b></p>
             <p>{{phoneNumber}}</p>
           {{/each}}
         </td>
@@ -177,52 +175,54 @@
           <h4>Addresses:</h4>
           <ul>
             {{#each addresses}}
-              <li>{{type}}</li>
+              <li><b>{{type}}:</b></li>
               <li>{{line1}}</li>
               <li>{{city}}, {{stateCode}} {{postalCode}}</li>
+              <p></p>
             {{/each}}
           </ul>
           <h4>Operating Hours:</h4>
           <ul>
-            {{#each operatingHours}}
-              <li>{{sunday}}</li>
-              <li>{{monday}}</li>
-              <li>{{tuesday}}</li>
-              <li>{{wednesday}}</li>
-              <li>{{thursday}}</li>
-              <li>{{friday}}</li>
-              <li>{{saturday}}</li>
-            {{/each}}
+            <li><b>Sunday: </b>{{operatingHours.0.standardHours.sunday}}</li>
+            <li><b>Monday: </b>{{operatingHours.0.standardHours.monday}}</li>
+            <li><b>Tuesday: </b>{{operatingHours.0.standardHours.tuesday}}</li>
+            <li><b>Wednesday: </b>{{operatingHours.0.standardHours.wednesday}}</li>
+            <li><b>Thursday: </b>{{operatingHours.0.standardHours.thursday}}</li>
+            <li><b>Friday: </b>{{operatingHours.0.standardHours.friday}}</li>
+            <li><b>Saturday: </b>{{operatingHours.0.standardHours.saturday}}</li>
           </ul>
           <h4>Entrance Fees:</h4>
           <ul>
             {{#each entranceFees}}
-              <li>{{title}}</li>
+              <li><b>{{title}}:</b></li>
               <li>{{description}}</li>
               <li>${{cost}}</li>
+              <p></p>
             {{/each}}
           </ul>
           <h4>Entrance Passes:</h4>
           <ul>
             {{#each entrancePasses}}
-              <li>{{title}}</li>
+              <li><b>{{title}}:</b></li>
               <li>{{description}}</li>
               <li>${{cost}}</li>
+              <p></p>
             {{/each}}
           </ul>
           <h4>Contact Info:</h4>
           <ul>
             {{#each contacts.emailAddresses}}
-              <li>{{emailAddress}}</li>
+              <li><b>Email Address:</b> {{emailAddress}}</li>
+              <p></p>
             {{/each}}
           </ul>
           <ul>
             {{#each contacts.phoneNumbers}}
-              <li>{{type}}</li>
-              <li>{{phoneNumber}}</li>
+              <li><b>{{type}}:</b> {{phoneNumber}}</li>
+              <p></p>
             {{/each}}
           </ul>
-          <li>{{url}}</li>
+          <li><a href="{{url}}">{{url}}</a></li>
         </div>
       </article>
     </script>
