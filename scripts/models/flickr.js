@@ -27,8 +27,14 @@
   };
 
   flickrData.populateHandlebars = function (arr) {
-    $('#flickr').empty();
-    $('#flickr').append(flickrData.toHtml(arr[flickrData.picIndex]));
+    if (flickrData.flickrArray.length === 0) {
+      $('#flickr').append('<img src="/images/flickr.png" alt="Flickr Logo">');
+      $('#flickr-container button').hide();
+    } else {
+      $('#flickr').empty();
+      $('#flickr').append(flickrData.toHtml(arr[flickrData.picIndex]));
+      $('#flickr-container button').show();
+    };
   };
 
   flickrData.buttonHandler = function() {
