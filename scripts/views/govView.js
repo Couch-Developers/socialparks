@@ -57,7 +57,7 @@
 
   parksView.navigateToPark = function() {
     $('.goto-park').on('click', function() {
-      var parkName = $(this).find('li:first-child').text();
+      var parkName = $(this).find('.parkNm').text();
       page('/park/' + parkName.replace(/\W+/g, '+'));
     });
 

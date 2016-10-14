@@ -2,13 +2,16 @@
 
 var compareForm = {};
 
+  $('#toggleCompare').click(function(){
+    $('#formHide').toggle();
+  })
+
 compareForm.submitForm = function(event) {
   event.preventDefault();
   var compareArr = [];
   var parkArr = [];
 
   $(':checkbox:checked').each(function() {
-    console.log("hello")
     parkArr.push($(this).val());
   });
 

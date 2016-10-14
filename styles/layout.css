@@ -81,7 +81,7 @@ header h1 {
   width: 90%;
   text-align: center;
   height: 26px;
-  background: #333;
+  background: #254515;
   margin: 20px auto;
   position: relative;
   border-radius: 50px;
@@ -141,6 +141,36 @@ header h1 {
 .main-state-ul li {
   display: inline;
 }
+
+#compare-form {
+  position: fixed;
+  top: 15em;
+  right: 17em;
+  display: flex;
+  background-color: #58B14C;
+  box-shadow: .7em .85em  1.5em rgba(0, 6, 49, 0.6);
+  border-radius: .25em;
+  z-index: 2;
+}
+
+#toggleCompare {
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 9px 9px 9px 9px;
+  background-color: #254515;
+  border-color: #254515;
+  box-shadow: 1px 1px 11px #330033;
+}
+
+#toggleCompare h3 {
+  color: #58B14C;
+}
+
+#compare-page {
+  width: 100%;
+}
+
 
 /*Clearfix*/
 

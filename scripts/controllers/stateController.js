@@ -4,6 +4,7 @@
   stateController.index = function(){
     $('#state-page').fadeIn().siblings().hide();
     $('#compare-form').show();
+    $('#formHide').hide();
   };
 
   stateController.emptyHtml = function(ctx, next) {

@@ -250,7 +250,7 @@
           <li>
             <ul class="goto-park">
               <li><img src="{{images.1.url}}"/></li>
-              <li><h3>{{name}}</h3></li>
+              <li class="parkNm"><h3>{{name}}</h3></li>
               <li><p><strong>State: </strong>{{states}}</p></li>
               <li><p><strong>Type: </strong>{{designation}}</p></li>
             </ul>
@@ -295,6 +295,32 @@
             <li class="flex-item"><img src="/images/andy_pic.jpg" />Andy Beers</li>
           </ul>
         </section>
+        <section id="compare-form">
+          <form class="" action="#" method="#">
+            <button type="button" id="toggleCompare"><h3>Toggle Compare</h3></button>
+            <div id="formHide">
+              <h3>What do you care about comparing?</h3>
+
+              <fieldset class="experience"><a href="#">Experience</a>
+                <input type="checkbox" name="designation" value="designation">Park Designation
+                <input type="checkbox" name="weather" value="weather">Weather
+                <input type="checkbox" name="description" value="description">Description
+              </fieldset>
+              <fieldset class="entrance"><a href="#">Park Entrance</a>
+                <input type="checkbox" name="address" value="address">Address
+                <input type="checkbox" name="fees" value="fees">Fees
+                <input type="checkbox" name="passes" value="passes">Passes
+                <input type="checkbox" name="hours" value="hours">Park Hours
+              </fieldset>
+              <fieldset class="contact"><a href="#">Contact Info</a>
+                <input type="checkbox" value="email">Email
+                <input type="checkbox" value="phone">Telephone
+                <input type="checkbox" name="website" value="website">Website
+              </fieldset>
+              <button type="submit">Compare</button>
+            </div>
+          </form>
+        </section>
         <section id="state-page" class="flex-container"></section>
         <section id="park-page" class="group">
             <div id="gov-data"></div>
@@ -317,29 +343,6 @@
           <div id="compare-results">
 
           </div>
-        </section>
-        <section id="compare-form">
-          <form class="" action="#" method="#">
-            <h3>What do you care about comparing?</h3>
-
-              <fieldset class="experience"><a href="#">Experience</a>
-                <input type="checkbox" name="designation" value="designation">Park Designation
-                <input type="checkbox" name="weather" value="weather">Weather
-                <input type="checkbox" name="description" value="description">Description
-              </fieldset>
-              <fieldset class="entrance"><a href="#">Park Entrance</a>
-                <input type="checkbox" name="address" value="address">Address
-                <input type="checkbox" name="fees" value="fees">Fees
-                <input type="checkbox" name="passes" value="passes">Passes
-                <input type="checkbox" name="hours" value="hours">Park Hours
-              </fieldset>
-              <fieldset class="contact"><a href="#">Contact Info</a>
-                <input type="checkbox" value="email">Email
-                <input type="checkbox" value="phone">Telephone
-                <input type="checkbox" name="website" value="website">Website
-              </fieldset>
-              <button type="submit">Compare</button>
-          </form>
         </section>
       </main>
   <!-- Footer -->
