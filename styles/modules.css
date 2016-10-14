@@ -28,7 +28,7 @@
 #nps-img {
   height: 40vh;
   width: 100%;
-  margin: 0 auto;
+  margin: 1.25em auto 0;
   padding: 0;
   text-align: center;
   overflow: hidden;
@@ -188,8 +188,10 @@ footer h1 {
     width: 100%;
     border-radius: 10%;
   }
+
   #about-page {
     height: 75vh;
+
   }
   #developers {
     width: 100%;
@@ -229,10 +231,6 @@ footer h1 {
 
 /*bigger than a tablet*/
 @media screen and (min-width:960px) {
-  /*#main-header nav {
-    max-width: 90%;
-    margin: auto;
-  }*/
 
   #nps-body {
     display: inline-block;

@@ -3,14 +3,21 @@
   var tweets = {};
 
   tweets.renderTweets = function(i) {
-    $('#tweet').empty();
-    twttr.widgets.createTweet(
-      twitter.allTweetsId[i],
-      document.getElementById('tweet'),
-      {
-        align: 'center',
-        width: 'auto'
-      });
+    if (twitter.allTweetsId.length === 0) {
+      $('#tweet').empty();
+      $('#tweet').append('<img src="/images/twitter.png" alt="Twitter Logo">');
+      $('#tweet-container button').hide();
+    } else {
+      $('#tweet').empty();
+      twttr.widgets.createTweet(
+        twitter.allTweetsId[i],
+        document.getElementById('tweet'),
+        {
+          align: 'center',
+          width: 'auto'
+        });
+      $('#tweet-container button').show();
+    }
   };
 
   tweets.buttonHandler = function() {

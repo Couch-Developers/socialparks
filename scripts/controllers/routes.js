@@ -1,5 +1,3 @@
-//Sample routing page for nav
-
 page('/',
   homeController.npsPortion,
   homeController.resetFilters,
@@ -15,11 +13,10 @@ page('/park/:name',
   parkController.loadParkData,
   parkController.index);
 
+
 page('/states',
   stateController.emptyHtml,
   stateController.loadData,
   stateController.index);
 
-
-// page('/#', etcController.index);
 page();
