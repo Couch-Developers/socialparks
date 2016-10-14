@@ -3,6 +3,8 @@
 
   parkController.index = function(){
     $('#park-page').fadeIn().siblings().hide();
+    $('#tweet-container button').hide();
+    $('#flickr-container button').hide();
   };
 
   parkController.emptyParkHtml = function(ctx, next) {

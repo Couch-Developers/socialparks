@@ -46,12 +46,13 @@
 #park-name-des {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.75);
 }
 
 #park-name-des h2, h4 {
+  font-family: sans-serif;
   text-align: center;
   margin: 0;
   padding: .3em;
@@ -85,6 +86,11 @@
 #tweet {
   margin: 0;
   padding: 0;
+}
+
+#tweet img {
+  max-width: 75%;
+  border-radius: 15px;
 }
 
 #tweet-container button {
@@ -124,7 +130,11 @@
 #flickr {
   margin: 0;
   padding: 0;
-  /*max-width: 75%;*/
+}
+
+#flickr #flickr-logo {
+  max-width: 75%;
+  border-radius: 15px;
 }
 
 #flickr div {
@@ -148,6 +158,12 @@
   padding: .5em;
   border: none;
   box-shadow: 2px 2px 6px darkgrey;
+}
+
+#flickr-img p {
+  text-align: center;
+  font-family: 'Hind', sans-serif;
+  color: #404040;
 }
 
 .left-button {
@@ -224,7 +240,7 @@ footer h1 {
   #main-header {
     display: flex;
     align-items: flex-end;
-    justify-content: space-around;;
+    justify-content: space-around;
   }
 
   header h1 {
@@ -243,6 +259,11 @@ footer h1 {
     height: 50vh;
   }
 
+  #tweet-container, #flickr-container {
+    width: 90%;
+    height: auto;
+  }
+
 }
 
 /*bigger than a tablet*/
@@ -253,11 +274,12 @@ footer h1 {
     display: inline-block;
     width: 45%;
     float: left;
-    margin: 0;
+    margin: 2%;
   }
 
   .park-col2 {
     display: inline-block;
     width: 45%;
     float: right;
+    margin: 2%;
   }

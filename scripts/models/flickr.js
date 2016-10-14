@@ -28,7 +28,7 @@
 
   flickrData.populateHandlebars = function (arr) {
     if (flickrData.flickrArray.length === 0) {
-      $('#flickr').append('<img src="/images/flickr.png" alt="Flickr Logo">');
+      $('#flickr').append('<img id="flickr-logo" src="/images/flickr.png" alt="Flickr Logo">');
       $('#flickr-container button').hide();
     } else {
       $('#flickr').empty();
@@ -39,14 +39,14 @@
 
   flickrData.buttonHandler = function() {
     $('button.flickr-next-media').on('click', function() {
-      console.log('next-button clicked');
+      $('#flickr-container button').hide();
       if (flickrData.picIndex <= (flickrData.flickrArray.length - 1)) {
         flickrData.picIndex++;
         flickrData.populateHandlebars(flickrData.flickrArray);
       }
     });
     $('button.flickr-previous-media').on('click', function() {
-      console.log('previous-button clicked');
+      $('#flickr-container button').hide();
       if (flickrData.picIndex > 0) {
         flickrData.picIndex--;
         flickrData.populateHandlebars(flickrData.flickrArray);
