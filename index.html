@@ -246,7 +246,7 @@
     <!-- State Page Template -->
     <script id="state-template" type="text/x-handlebars-template">
       <ul>
-        <li><label><input type="checkbox" id="selected-parks" value="{{parkCode}}"></label>
+        <li><label><input type="checkbox" class="selected-parks" value="{{parkCode}}"></label>
           <ul class="goto-park">
             <li><h2>{{name}}</h2></li>
             <li><img src="{{images.1.url}}" style="max-width:100px; max-height:100px"/></li>
@@ -275,10 +275,7 @@
       <section id="landing-page" class="flex-container">
         <h1>Home Page</h1>
         <div id="filters">
-          <select id="state-filter">
-            <option value="default" selected>---Filter by State</option>
-          </select>
-          <select id="park-filter">
+            <select id="park-filter">
             <option value="default" selected>---Filter by Park</option>
           </select>
         </div>
