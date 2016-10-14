@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="vendors/styles/normalize.css">
     <link rel="stylesheet" href="styles/base.css">
@@ -245,8 +246,13 @@
     <!-- State Page Template -->
     <script id="state-template" type="text/x-handlebars-template">
       <ul>
-        <li>
-          <label><input type="checkbox" id="{{parkCode}}"><h2>{{name}}</h2><br></label>
+        <li><label><input type="checkbox" id="selected-parks" value="{{parkCode}}"></label>
+          <ul class="goto-park">
+            <li><h2>{{name}}</h2></li>
+            <li><img src="{{images.1.url}}" style="max-width:100px; max-height:100px"/></li>
+            <li><p><strong>State: </strong>{{states}}</p></li>
+            <li><p><strong>Type: </strong>{{designation}}</p></li>
+          </ul>
         </li>
       </ul>
     </script>
@@ -268,11 +274,10 @@
     <main>
       <section id="landing-page" class="flex-container">
         <h1>Home Page</h1>
-
         <div id="filters">
-          <!-- <select id="state-filter">
+          <select id="state-filter">
             <option value="default" selected>---Filter by State</option>
-          </select> -->
+          </select>
           <select id="park-filter">
             <option value="default" selected>---Filter by Park</option>
           </select>
@@ -282,12 +287,12 @@
       </section>
       <section id="about-page">
         <h1>About Couch Developers</h1>
-        <p>We are students at Code Fellows and this is our final project for the Code 301 class.  This page provides a comparsion function for National Parks. This project uses public information from the Nation Parks service, Twitter, and Flickr, allowing a user to see the official information about the park, as well and images and Tweets from past visitors.</p>
-        <ul id="developers" class="flex-box">
-          <li class="flex-item"><img src="" />Steven Jackson</li>
-          <li class="flex-item"><img src="/images/Stephanie_Caulley.jpg" />Stephanie Caulley</li>
-          <li class="flex-item"><img src="" />Erica Hendricks</li>
-          <li class="flex-item"><img src="" />Andy Beers</li>
+        <p>We are students at Code Fellows and this is our final project for the Code 301 class.</p>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
         </ul>
       </section>
       <section id="state-page"></section>

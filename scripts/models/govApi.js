@@ -23,7 +23,7 @@
       url: '/nps/parks?limit=525',
       success: function(data, message, xhr) {
         parksView.populateParksFilter(data.data);
-        parksView.designationFilter(parksStateArray);
+        parksView.designationFiloCodter(parksStateArray);
         parksObj.parkNameJSON(data.data);
         }
       });

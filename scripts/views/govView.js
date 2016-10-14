@@ -55,6 +55,14 @@
     });
   };
 
+  parksView.navigateToPark = function() {
+    $('.goto-park').on('click', function() {
+      var parkName = $(this).find('li:first-child').text();
+      page('/park/' + parkName.replace(/\W+/g, '+'));
+    });
+
+  };
+
   parksView.showPark = function(data) {
     $('#gov-data').append(parksObj.toHtml(data));
   };
@@ -64,6 +72,7 @@
   };
 
   parksView.navigateFromParksFilter();
+
 
   module.parksView = parksView;
 
