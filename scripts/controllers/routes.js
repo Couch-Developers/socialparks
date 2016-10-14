@@ -19,14 +19,7 @@ page('/states',
   stateController.emptyHtml,
   stateController.loadData,
   stateController.index);
-page('/states/:state1/:state2/',
-  stateController.emptyHtml,
-  stateController.loadData,
-  stateController.index);
-page('/states/:state1/:state2/:state3',
-  stateController.emptyHtml,
-  stateController.loadData,
-  stateController.index);
+
 
 // page('/#', etcController.index);
 page();
