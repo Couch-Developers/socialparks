@@ -88,18 +88,3 @@ ul {
 li {
   list-style: none;
 }
-
-@media screen and (min-width:960px) {
-  html {
-    background: url("../images/backgroundimage.jpg") fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-  }
-
-  #content-body {
-    width: 75%;
-    margin: 2% auto;
-  }
-
-
-}
