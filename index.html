@@ -245,101 +245,112 @@
     </script>
     <!-- State Page Template -->
     <script id="state-template" type="text/x-handlebars-template">
-      <ul>
-        <li><label><input type="checkbox" class="selected-parks" value="{{parkCode}}"></label>
-          <ul class="goto-park">
-            <li><h2>{{name}}</h2></li>
-            <li><img src="{{images.1.url}}" style="max-width:100px; max-height:100px"/></li>
-            <li><p><strong>State: </strong>{{states}}</p></li>
-            <li><p><strong>Type: </strong>{{designation}}</p></li>
-          </ul>
-        </li>
-      </ul>
+      <!-- <div class="main-state-ul"> -->
+        <ul class="main-state-ul">
+          <li>
+            <ul class="goto-park">
+              <li><img src="{{images.1.url}}"/></li>
+              <li class="parkNm"><h3>{{name}}</h3></li>
+              <li><p><strong>State: </strong>{{states}}</p></li>
+              <li><p><strong>Type: </strong>{{designation}}</p></li>
+            </ul>
+            <div class="selected-parks">
+              <input type="checkbox" value="{{parkCode}}" id="selectedParksInput{{parkCode}}" name="">
+              <label for="selectedParksInput{{parkCode}}"></label>
+            </div>
+          </li>
+        </ul>
+      <!-- </div> -->
     </script>
   </head>
   <body>
+    <div id="content-body">
 <!-- Header -->
-    <header id="main-header">
-      <a href="/"><div id="site-name">
-        <h1>SocialParks</h1>
-        <img class="logo" src="images/spLogo.png" alt="Social Parks logo">
-      </div></a>
-    </header>
-<!-- Main body  -->
-    <main>
-      <section id="landing-page" class="flex-container">
-        <h1>Home Page</h1>
-        <div id="filters">
-          <select id="park-filter">
-            <option value="default" selected>---Filter by Park</option>
-          </select>
-        </div>
-        <h2>Select up to 3 states</h2>
-        <div id="chartdiv"></div><h2><div class=selection></div><span class="state-button"></span></h2>
-      </section>
-      <section id="about-page">
-        <h1>About Couch Developers</h1>
-        <p>We are students at Code Fellows and this is our final project for the Code 301 class.  This page provides a comparsion function for National Parks. This project uses public information from the Nation Parks service, Twitter, and Flickr, allowing a user to see the official information about the park, as well and images and Tweets from past visitors.</p>
-        <ul id="developers" class="flex-container">
-          <li class="flex-item"><img src="/images/Steven_Jackson.jpg" />Steven Jackson</li>
-          <li class="flex-item"><img src="/images/Stephanie_Caulley.jpg" />Stephanie Caulley</li>
-          <li class="flex-item"><img src="/images/Erica_Hendricks.jpg" />Erica Hendricks</li>
-          <li class="flex-item"><img src="/images/andy-pic.jpg" />Andy Beers</li>
-        </ul>
-      </section>
-      <section id="state-page"></section>
-      <section id="park-page" class="group">
-          <div id="gov-data"></div>
-        <div class="park-col2">
-          <div id="tweet-container">
-            <button class="left-button previous-media"><</button>
-            <div id="tweet"></div>
-            <button class="right-button next-media">></button>
+      <header id="main-header" class="block-style">
+        <a href="/"><div id="site-name">
+          <h1>SocialParks</h1>
+          <img class="logo" src="images/spLogo.png" alt="Social Parks logo">
+        </div></a>
+      </header>
+  <!-- Main body  -->
+      <main class="block-style">
+        <section id="landing-page" class="flex-container">
+          <h2>Select up to 5 states</h2>
+          <div id="chartdiv"></div><h3><div class=selection></div></h3><p><span class="state-button"></span></p>
+          <div id="filters-wrapper">
+            <div id="filters">
+              <select id="park-filter">
+                <option value="default" selected>---Filter by Park</option>
+              </select>
+            </div>
           </div>
-          <div id="flickr-container">
-            <button class="left-button flickr-previous-media"><</button>
-            <div id="flickr"></div>
-            <button class="right-button flickr-next-media">></button>
+        </section>
+        <section id="about-page">
+          <h1>About Couch Developers</h1>
+          <p>We are students at Code Fellows and this is our final project for the Code 301 class.  This page provides a comparsion function for National Parks. This project uses public information from the Nation Parks service, Twitter, and Flickr, allowing a user to see the official information about the park, as well and images and Tweets from past visitors.</p>
+          <ul id="developers" class="flex-container">
+            <li class="flex-item"><img src="/images/Steven_Jackson.jpg" />Steven Jackson</li>
+            <li class="flex-item"><img src="/images/Stephanie_Caulley.jpg" />Stephanie Caulley</li>
+            <li class="flex-item"><img src="/images/Erica_Hendricks.jpg" />Erica Hendricks</li>
+            <li class="flex-item"><img src="/images/andy-pic.jpg" />Andy Beers</li>
+          </ul>
+        </section>
+        <section id="compare-form">
+          <form class="" action="#" method="#">
+            <button type="button" id="toggleCompare"><h3>Toggle Compare</h3></button>
+            <div id="formHide">
+              <h3>What do you care about comparing?</h3>
+
+              <fieldset class="experience"><a href="#">Experience</a>
+                <input type="checkbox" name="designation" value="designation">Park Designation
+                <input type="checkbox" name="weather" value="weather">Weather
+                <input type="checkbox" name="description" value="description">Description
+              </fieldset>
+              <fieldset class="entrance"><a href="#">Park Entrance</a>
+                <input type="checkbox" name="address" value="address">Address
+                <input type="checkbox" name="fees" value="fees">Fees
+                <input type="checkbox" name="passes" value="passes">Passes
+                <input type="checkbox" name="hours" value="hours">Park Hours
+              </fieldset>
+              <fieldset class="contact"><a href="#">Contact Info</a>
+                <input type="checkbox" value="email">Email
+                <input type="checkbox" value="phone">Telephone
+                <input type="checkbox" name="website" value="website">Website
+              </fieldset>
+              <button type="submit">Compare</button>
+            </div>
+          </form>
+        </section>
+        <section id="state-page" class="flex-container"></section>
+        <section id="park-page" class="group">
+            <div id="gov-data"></div>
+          <div class="park-col2">
+            <div id="tweet-container">
+              <button class="left-button previous-media"><</button>
+              <div id="tweet"></div>
+              <button class="right-button next-media">></button>
+            </div>
+            <div id="flickr-container">
+              <button class="left-button flickr-previous-media"><</button>
+              <div id="flickr"></div>
+              <button class="right-button flickr-next-media">></button>
+            </div>
           </div>
-        </div>
-      </section>
-      <section id="compare-page" class="flex-container">
-        <h2>Compare Page</h2>
+        </section>
+        <section id="compare-page" class="flex-container">
+          <h2>Compare Page</h2>
 
-        <div id="compare-results">
+          <div id="compare-results">
 
-        </div>
-      </section>
-      <section id="compare-form">
-        <form class="" action="#" method="#">
-          <h3>What do you care about comparing?</h3>
-
-            <fieldset class="experience"><a href="#">Experience</a>
-              <input type="checkbox" name="designation" value="designation">Park Designation
-              <input type="checkbox" name="weather" value="weather">Weather
-              <input type="checkbox" name="description" value="description">Description
-            </fieldset>
-            <fieldset class="entrance"><a href="#">Park Entrance</a>
-              <input type="checkbox" name="address" value="address">Address
-              <input type="checkbox" name="fees" value="fees">Fees
-              <input type="checkbox" name="passes" value="passes">Passes
-              <input type="checkbox" name="hours" value="hours">Park Hours
-            </fieldset>
-            <fieldset class="contact"><a href="#">Contact Info</a>
-              <input type="checkbox" value="email">Email
-              <input type="checkbox" value="phone">Telephone
-              <input type="checkbox" name="website" value="website">Website
-            </fieldset>
-            <button type="submit">Compare</button>
-        </form>
-      </section>
-    </main>
-<!-- Footer -->
-    <footer>
-      <a href="/about">About</a>
-      <p>&copy; 2016 Couch Developers</p>
-    </footer>
-    <script src="npsapikey.js"></script>
+          </div>
+        </section>
+      </main>
+  <!-- Footer -->
+      <footer class="block-style">
+        <a href="/about"><h1>About</h1></a>
+        <p>&copy; 2016 Couch Developers</p>
+      </footer>
+  </div>
 
     <!-- Vendor Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

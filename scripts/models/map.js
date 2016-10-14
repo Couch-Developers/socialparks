@@ -13,11 +13,11 @@ var map = AmCharts.makeChart( 'chartdiv', {
   },
   'areasSettings': {
     'autoZoom': false,
-    'color': '#CDCDCD',
+    'color': '#254515',
     'colorSolid': '#5EB7DE',
-    'selectedColor': '#5EB7DE',
-    'outlineColor': '#666666',
-    'rollOverColor': '#88CAE7',
+    'selectedColor': '#E86523',
+    'outlineColor': '#fff',
+    'rollOverColor': '#00b300',
     'rollOverOutlineColor': '#FFFFFF',
     'selectable': true
   },
@@ -40,46 +40,33 @@ var map = AmCharts.makeChart( 'chartdiv', {
       });
 
       if (states.length === 1){
-        $('h2 .state-button').empty();
+        $('p .state-button').empty();
         var select = $('<button>', {
           text: 'Select State',
           click: function(e) {
-            var stateId = states.map(function(data){
-              return '/states/' + data.title;
-            });
-            console.log(stateId);
+            page('/states');
             e.preventDefault();
-            page(stateId[0]);
           }
         });
-        $('h2 .state-button').append(select);
+        $('p .state-button').append(select);
 
       } else if (states.length > 1){
-        $('h2 .state-button').empty();
+        $('p .state-button').empty();
         var select = $('<button>', {
           text: 'Select States',
           click: function(e) {
-            var stateId = states.map(function(data){
-              return data.title;
-            });
-            console.log(stateId);
+            page('/states');
             e.preventDefault();
-            if (stateId.length === 2){
-              page('/states/' + stateId[1] + '/' + stateId[0]);
-            } else {
-              page('/states/' + stateId[2] + '/' + stateId[1] + '/' + stateId[0]);
-            }
           }
         });
-        $('h2 .state-button').append(select);
+        $('p .state-button').append(select);
       } else {
-        $('h2 .state-button').empty();
+        $('p .state-button').empty();
       };
 
-      if (states.length <= +5){
-
-        $('h2 .selection').empty();
-        $('h2 .selection').append('State Selection:' + states.reduce(function (acc, curr, index) {
+      if (states.length <= 5){
+        $('h3 .selection').empty();
+        $('h3 .selection').append('State Selection:' + states.reduce(function (acc, curr, index) {
           var lastElem = states.length - 1;
           if (index === 0) {
             return ' ' + curr['title'];
@@ -90,7 +77,7 @@ var map = AmCharts.makeChart( 'chartdiv', {
           }
         }, ''));
       }else {
-        alert('Please keep your selection to only 3 states');
+        alert('Please keep your selection to only 5 states');
         // deselect the area by assigning all of the dataProvider as selected object
         map.selectedObject = map.dataProvider;
 

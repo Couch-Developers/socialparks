@@ -21,26 +21,156 @@ header h1 {
   margin: 0;
 }
 
-/*Nav bar layout*/
-nav li {
-  font-size: 1.25em;
-  text-align: center;
-  padding: .25em;
-}
-
-nav a  {
-  padding: .25em 5em;
-}
-
-nav li:hover {
-  background-color: #41631E;
-  font-weight: bold;
-}
-
 #chartdiv {
   width: 100%;
-  height: 500px;
+  float: left;
+  height: 750px;
+  clear: right;
+  margin: 0 3em 3em 3em;
 }
+
+#filters-wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/*Adapted from a codepen on select css styling https://codepen.io/ericrasch/pen/zjDBx*/
+#filters {
+  margin: 0 auto;
+  overflow:hidden;
+  width:350px;
+  border-radius: 9px 9px 9px 9px;
+  box-shadow: 1px 1px 11px #330033;
+  background: #58B14C no-repeat scroll 319px center;
+  align-self: flex-end;
+}
+
+#filters select {
+   border: 0;
+   width:350px;
+   color: #254515;
+   background: transparent;
+   font-size: 20px;
+   font-weight: bold;
+   *background: #58B14C;
+}
+
+/*State parks page styling*/
+#state-page {
+  padding: 1em;
+}
+
+#state-page h2 {
+  align-self: flex-start;
+  width: 100%;
+}
+
+.main-state-ul {
+  width: 20%;
+  text-align: center;
+  background-color: #58B14C;
+  border-radius: .25em;
+  border-style: outset;
+  border-color: #58B14C;
+  box-shadow: 1px 1px 11px #330033;
+  margin: .5em;
+  clear: both;
+}
+
+.selected-parks {
+  width: 90%;
+  text-align: center;
+  height: 26px;
+  background: #254515;
+  margin: 20px auto;
+  position: relative;
+  border-radius: 50px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.2);
+}
+.selected-parks:after {
+    content: 'Select';
+    color: #000;
+    position: absolute;
+    right: 10px;
+    z-index: 0;
+    font: 12px/26px Arial, sans-serif;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 rgba(255,255,255,.15);
+}
+.selected-parks:before {
+    content: 'Selected';
+    color: #27ae60;
+    position: absolute;
+    left: 10px;
+    z-index: 0;
+    font: 12px/26px Arial, sans-serif;
+    font-weight: bold;
+}
+.selected-parks label {
+    display: block;
+    width: 60px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    z-index: 1;
+    background: #fcfff4;
+    background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.3);
+}
+.selected-parks input[type=checkbox] {
+  visibility: hidden;
+}
+
+.selected-parks input[type=checkbox]:checked + label {
+  left:70%;
+}
+
+.main-state-ul p, li, h3 {
+  margin: 0;
+}
+
+.main-state-ul p {
+  font-size: 1.25em;
+  word-wrap: break-word;
+}
+
+.main-state-ul li {
+  display: inline;
+}
+
+#compare-form {
+  position: fixed;
+  top: 15em;
+  right: 17em;
+  display: flex;
+  background-color: #58B14C;
+  box-shadow: .7em .85em  1.5em rgba(0, 6, 49, 0.6);
+  border-radius: .25em;
+  z-index: 2;
+}
+
+#toggleCompare {
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 9px 9px 9px 9px;
+  background-color: #254515;
+  border-color: #254515;
+  box-shadow: 1px 1px 11px #330033;
+}
+
+#toggleCompare h3 {
+  color: #58B14C;
+}
+
+#compare-page {
+  width: 100%;
+}
+
 
 /*Clearfix*/
 

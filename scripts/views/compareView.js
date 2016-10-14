@@ -2,14 +2,18 @@
 
 var compareForm = {};
 
+  $('#toggleCompare').click(function(){
+    $('#formHide').toggle();
+  })
+
 compareForm.submitForm = function(event) {
   event.preventDefault();
   var compareArr = [];
   var parkArr = [];
 
-  $('.selected-parks:checked').each(function() {
+  $(':checkbox:checked').each(function() {
     parkArr.push($(this).val());
-  })
+  });
 
   $('form input:checked').each(function() {
     compareArr.push($(this).val());

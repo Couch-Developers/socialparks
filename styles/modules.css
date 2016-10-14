@@ -1,4 +1,18 @@
 /*Park Page*/
+.goto-park img{
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.state-button button{
+  width:7em;
+  overflow: hidden;
+  border-radius: 9px 9px 9px 9px;
+  border-color: #58B14C;
+  box-shadow: 1px 1px 11px #330033;
+  background: #58B14C;
+}
+
 #park-page {
   background-color: #edecee;
 }
@@ -139,6 +153,10 @@
 .right-button {
   border-radius: 0 80px 80px 0;
   margin: 0 0 0 -5px;
+}
+
+footer h1 {
+  color: #C9DEA9;
 }
 
 /*Media queries*/

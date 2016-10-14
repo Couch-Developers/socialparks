@@ -1,9 +1,19 @@
+html {
+  background-color: #254515;
+}
+
 /*Header styles*/
 #main-header {
-  background-color: #254515;
+  background: url("../images/headerbackground.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  min-height: 10em;
   color: #fff;
-  box-shadow: 0px 4px 6px 0px rgba(50, 50, 50, 0.82);
-  border-bottom: 4px solid #41631E;
+}
+
+.block-style {
+  box-shadow: .7em .85em  1.5em rgba(0, 6, 49, 0.6);
+  border-radius: .25em;
 }
 
 header a {
@@ -42,8 +52,28 @@ p, h4, li {
   font-family: 'Hind', sans-serif;
 }
 
+strong {
+  color: #254515;
+}
+
 h1 {
+  font-family: 'Hind', sans-serif;
+  font-size: 2.5em;
   margin: 0;
+}
+
+h2 {
+  font-family: 'Hind', sans-serif;
+  font-size: 2em;
+  color: #254515;
+  margin: .5em;
+}
+
+h3 {
+  font-family: 'Hind', sans-serif;
+  font-size: 1.5em;
+  color: #254515;
+  margin: .5em;
 }
 
 a {
@@ -57,4 +87,19 @@ ul {
 
 li {
   list-style: none;
+}
+
+@media screen and (min-width:960px) {
+  html {
+    background: url("../images/backgroundimage.jpg") fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+
+  #content-body {
+    width: 75%;
+    margin: 2% auto;
+  }
+
+
 }
