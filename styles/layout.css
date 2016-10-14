@@ -86,7 +86,6 @@ header h1 {
   position: relative;
   border-radius: 50px;
   box-shadow: inset 0 1px 1px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.2);
-  align-self: flex-end;
 }
 .selected-parks:after {
     content: 'Select';
@@ -127,11 +126,8 @@ header h1 {
 }
 
 .selected-parks input[type=checkbox]:checked + label {
-  background-color: #E86523;
   left:70%;
 }
-
-
 
 .main-state-ul p, li, h3 {
   margin: 0;
@@ -148,8 +144,8 @@ header h1 {
 
 #compare-form {
   position: fixed;
-  top: 24%;
-  right: 15%;
+  top: 15em;
+  right: 17em;
   display: flex;
   background-color: #58B14C;
   box-shadow: .7em .85em  1.5em rgba(0, 6, 49, 0.6);
