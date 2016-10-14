@@ -41,7 +41,7 @@ header h1 {
   width:350px;
   border-radius: 9px 9px 9px 9px;
   box-shadow: 1px 1px 11px #330033;
-  background: #58B14C no-repeat scroll 319px center;
+  background: #79AD24 no-repeat scroll 319px center;
   align-self: flex-end;
 }
 
@@ -52,7 +52,7 @@ header h1 {
    background: transparent;
    font-size: 20px;
    font-weight: bold;
-   *background: #58B14C;
+   *background: #79AD24;
 }
 
 /*State parks page styling*/
@@ -68,10 +68,10 @@ header h1 {
 .main-state-ul {
   width: 20%;
   text-align: center;
-  background-color: #58B14C;
+  background-color: #79AD24;
   border-radius: .25em;
   border-style: outset;
-  border-color: #58B14C;
+  border-color: #79AD24;
   box-shadow: 1px 1px 11px #330033;
   margin: .5em;
   clear: both;
@@ -148,7 +148,7 @@ header h1 {
   top: 24%;
   right: 11%;
   display: flex;
-  background-color: #58B14C;
+  background-color: #79AD24;
   box-shadow: .7em .85em  1.5em rgba(0, 6, 49, 0.6);
   border-radius: .25em;
   z-index: 2;
@@ -165,7 +165,7 @@ header h1 {
 }
 
 #toggleCompare h3 {
-  color: #58B14C;
+  color: #79AD24;
 }
 
 #compare-page {

@@ -17,7 +17,7 @@ var map = AmCharts.makeChart( 'chartdiv', {
     'colorSolid': '#5EB7DE',
     'selectedColor': '#E86523',
     'outlineColor': '#fff',
-    'rollOverColor': '#00b300',
+    'rollOverColor': '#79AD24',
     'rollOverOutlineColor': '#FFFFFF',
     'selectable': true
   },
