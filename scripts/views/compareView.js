@@ -7,9 +7,10 @@ compareForm.submitForm = function(event) {
   var compareArr = [];
   var parkArr = [];
 
-  $('.selected-parks:checked').each(function() {
+  $(':checkbox:checked').each(function() {
+    console.log("hello")
     parkArr.push($(this).val());
-  })
+  });
 
   $('form input:checked').each(function() {
     compareArr.push($(this).val());

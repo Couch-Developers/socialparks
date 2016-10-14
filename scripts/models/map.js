@@ -77,7 +77,7 @@ var map = AmCharts.makeChart( 'chartdiv', {
           }
         }, ''));
       }else {
-        alert('Please keep your selection to only 3 states');
+        alert('Please keep your selection to only 5 states');
         // deselect the area by assigning all of the dataProvider as selected object
         map.selectedObject = map.dataProvider;
 

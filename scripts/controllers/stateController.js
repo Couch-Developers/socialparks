@@ -52,7 +52,7 @@
         return acc = acc + ', ' + curr['title'];
       }
     }, '');
-    $('#state-page').append('<h1>Parks in: ' + stateName + '</h1>');
+    $('#state-page').append('<h2>Parks in: ' + stateName + '</h2>');
     obj.data.forEach(function(park) {
       $('#state-page').append(stateController.toHtml(park));
     });

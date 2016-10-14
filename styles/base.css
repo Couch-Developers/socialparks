@@ -53,6 +53,10 @@ p, h4, li {
   font-family: 'Hind', sans-serif;
 }
 
+strong {
+  color: #254515;
+}
+
 h1 {
   font-family: 'Hind', sans-serif;
   font-size: 2.5em;
