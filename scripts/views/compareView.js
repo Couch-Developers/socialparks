@@ -11,7 +11,7 @@ compareForm.submitForm = function(event) {
   var compareArr = [];
   var parkArr = [];
 
-  $(':checkbox:checked').each(function() {
+  $('#state-page :checkbox:checked').each(function() {
     parkArr.push($(this).val());
   });
 
@@ -37,6 +37,15 @@ parksObj.CompareHtml = function(data) {
   return html;
 };
 
+compareForm.selectAll = function() {
+  $('#compare-form fieldset').on('click', 'a', function() {
+    event.preventDefault();
+
+    $(this).siblings('input[type="checkbox"]').attr("checked", true);
+
+  });
+};
+
 compareForm.renderResults = function (arr) {
 
   var context = {park: arr};
@@ -47,6 +56,7 @@ compareForm.renderResults = function (arr) {
 }
 
 $('form').on('submit', compareForm.submitForm);
+compareForm.selectAll();
 
 module.compareForm = compareForm;
 
