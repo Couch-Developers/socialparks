@@ -86,6 +86,7 @@ header h1 {
   position: relative;
   border-radius: 50px;
   box-shadow: inset 0 1px 1px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.2);
+
 }
 .selected-parks:after {
     content: 'Select';
@@ -126,6 +127,7 @@ header h1 {
 }
 
 .selected-parks input[type=checkbox]:checked + label {
+  background-color: #E86523;
   left:70%;
   background-color: #E86523;
 }

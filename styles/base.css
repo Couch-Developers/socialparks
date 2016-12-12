@@ -115,12 +115,8 @@ li {
   color: white;
   padding: 1.5em;
   }
-#compare-results h3 {
-  font-weight: bold;
-}
 
-#compare-results h4 {
-  font-weight: bold;
+
 }
 
 #compare-form button[type="submit"] {
